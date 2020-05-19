@@ -1,0 +1,30 @@
+.game-container{
+  
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.game-grid{
+    position: relative;
+    margin: 50px auto;
+    background-color: #fff;
+    border:4px solid #000;
+    width: 500px;
+    height: 500px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.hero{
+    width: 50px;
+    height: 50px;
+    position: absolute;
+}
+
+.grid-item{
+    width: 50px;
+    height: 50px;
+    background-color: aqua;
+    
+}
