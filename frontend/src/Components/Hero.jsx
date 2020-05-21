@@ -42,13 +42,13 @@ export default function Hero() {
         }))
 
         if (auxdirection === 'DOWN')
-            setPosy(posy + 8)
-        else if (auxdirection === 'UP')
             setPosy(posy - 8)
+        else if (auxdirection === 'UP')
+            setPosy(posy + 8)
         else if (auxdirection === 'LEFT')
-            setPosx(posx - 8)
-        else if (auxdirection === 'RIGHT')
             setPosx(posx + 8)
+        else if (auxdirection === 'RIGHT')
+            setPosx(posx - 8)
         console.log("renderizando..")
     })
 
@@ -64,7 +64,7 @@ export default function Hero() {
         <div >
             <div className='game-map'
                 style={{
-                    backgroundPosition: `-${posx}px -${posy}px`
+                    backgroundPosition: `${posx}px ${posy}px`
                 }}
             />
             <div
