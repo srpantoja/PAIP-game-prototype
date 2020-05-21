@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react'
 import './game.css'
+import AntigoHero from './AntigoHero'
 import Hero from './Hero'
-import Teste from './Teste'
 export default function Game() {
     return (
         <div className='game-container'>
             <div className='game-grid'>
-                <Teste></Teste>
+                <Hero></Hero>
             </div>
         </div>
 

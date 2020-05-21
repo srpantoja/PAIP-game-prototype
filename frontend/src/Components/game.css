@@ -6,13 +6,19 @@
 .game-grid{
     position: relative;
     margin: 30px auto;
-    background-color: #fff;
     border:3px solid #000;
     width: 768px;
     height: 576px;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+}
+
+.game-map{
+    width: 768px;
+    height: 576px;
+    background-image: url(../assets/mapa1.png);
+
 }
 
 .hero{

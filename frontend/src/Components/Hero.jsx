@@ -1,56 +1,82 @@
 import React, { useState, useEffect } from 'react'
-import hero from '../assets/hero.png'
-
-import herofront from '../assets/hero_walk/front_stop.png'
-import heroleft from '../assets/hero_walk/left_stop.png'
-import heroright from '../assets/hero_walk/right_stop.png'
-import heroback from '../assets/hero_walk/back_stop.png'
+import useEventListener from '@use-it/event-listener'
 
 export default function Hero() {
 
     const [posx, setPosx] = useState(0)
     const [posy, setPosy] = useState(0)
-    const [img, setImg] = useState(herofront)
 
-    useEffect(() => {
-        window.addEventListener("keydown", KeyDown)
-        function KeyDown(event) {
-            switch (event.keyCode) {
-                case 37://LEFT
-                    setPosx(posx - 50)
-                    setImg(heroleft)
+    const max_step = 4
+    const offset = {
+        top: 0,
+        left: 0
+    }
+    const size = 64
+    const directions = {
+        DOWN: 0,
+        LEFT: size * 1,
+        RIGHT: size * 2,
+        UP: size * 3
+    }
 
-                    break
-                case 38://UP
-                    setPosy(posy - 50)
-                    setImg(heroback)
-                    break
-                case 39://RIGHT
-                    setPosx(posx + 50)
-                    setImg(heroright)
-                    break
-                case 40://DOWN
-                    setPosy(posy + 50)
-                    setImg(herofront)
-                    break
-                default:
-                    break
-            }
-        }
-
-        return () => {
-            window.removeEventListener("keydown", KeyDown)
-        }
-    }, [posx, posy])
-
-    const style = {
+    const position = {
         top: posy,
         left: posx
     }
 
+    const [facing, setFacing] = useState({
+        current: directions.DOWN,
+        previous: directions.DOWN
+    })
+    const [step, setStep] = useState(0)
+
+
+    useEventListener("keydown", ({ code }) => {
+        if (code.indexOf("Arrow") === -1)
+            return
+        const auxdirection = code.replace("Arrow", "").toUpperCase()
+        const direction = directions[auxdirection]
+        setFacing(prevState => ({
+            current: direction,
+            previous: prevState.current
+        }))
+
+        if (auxdirection === 'DOWN')
+            setPosy(posy + 8)
+        else if (auxdirection === 'UP')
+            setPosy(posy - 8)
+        else if (auxdirection === 'LEFT')
+            setPosx(posx - 8)
+        else if (auxdirection === 'RIGHT')
+            setPosx(posx + 8)
+        console.log("renderizando..")
+    })
+
+    useEffect(() => {
+        if (facing.current === facing.previous) {
+            setStep(prevState => (prevState < max_step - 1 ? prevState + 1 : 0))
+        } else {
+            setStep(0)
+        }
+    }, [facing])
+
     return (
         <div >
-            <img className='hero' src={img} style={style} />
+            <div className='game-map'
+                style={{
+                    backgroundPosition: `-${posx}px -${posy}px`
+                }}
+            />
+            <div
+                style={{
+                    top: 260,
+                    left: 350,
+                    backgroundPosition: `-${offset.left + step * size}px -${offset.top + facing.current}px`
+                }}
+                className='hero'>
+
+            </div>
         </div>
+
     )
 }
