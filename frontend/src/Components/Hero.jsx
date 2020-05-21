@@ -19,11 +19,6 @@ export default function Hero() {
         UP: size * 3
     }
 
-    const position = {
-        top: posy,
-        left: posx
-    }
-
     const [facing, setFacing] = useState({
         current: directions.DOWN,
         previous: directions.DOWN
