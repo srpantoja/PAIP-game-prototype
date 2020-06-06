@@ -1,16 +1,14 @@
 import React, { useState, useEffect } from 'react'
 import useEventListener from '@use-it/event-listener'
 
-export default function Hero() {
+export default function Hero(props) {
 
-    const [posx, setPosx] = useState(0)
-    const [posy, setPosy] = useState(0)
+    const [posx, setPosx] = useState(40)
+    const [posy, setPosy] = useState(270)
 
     const max_step = 4
-    const offset = {
-        top: 0,
-        left: 0
-    }
+    const [step, setStep] = useState(1)
+
     const size = 64
     const directions = {
         DOWN: 0,
@@ -23,8 +21,30 @@ export default function Hero() {
         current: directions.DOWN,
         previous: directions.DOWN
     })
-    const [step, setStep] = useState(0)
 
+    const move = (key) => {
+        if (key === 'DOWN')
+            down_move()
+        else if (key === 'UP')
+            up_move()
+        else if (key === 'LEFT')
+            left_move()
+        else if (key === 'RIGHT')
+            right_move()
+    }
+
+    const left_move = () => {
+        setPosx(posx - 16)
+    }
+    const right_move = () => {
+        setPosx(posx + 16)
+    }
+    const up_move = () => {
+        setPosy(posy - 16)
+    }
+    const down_move = () => {
+        setPosy(posy + 16)
+    }
 
     useEventListener("keydown", ({ code }) => {
         if (code.indexOf("Arrow") === -1)
@@ -35,15 +55,7 @@ export default function Hero() {
             current: direction,
             previous: prevState.current
         }))
-
-        if (auxdirection === 'DOWN')
-            setPosy(posy + 8)
-        else if (auxdirection === 'UP')
-            setPosy(posy - 8)
-        else if (auxdirection === 'LEFT')
-            setPosx(posx - 8)
-        else if (auxdirection === 'RIGHT')
-            setPosx(posx + 8)
+        move(auxdirection)
         console.log("renderizando..")
     })
 
@@ -60,7 +72,7 @@ export default function Hero() {
             style={{
                 top: posy,
                 left: posx,
-                backgroundPosition: `-${offset.left + step * size}px -${offset.top + facing.current}px`
+                backgroundPosition: `-${ step * size}px -${facing.current}px`
             }}
             className='hero' />
     )
