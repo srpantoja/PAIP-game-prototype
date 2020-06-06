@@ -1,7 +1,6 @@
 import React from 'react'
 import Login from './Login'
-import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
-
+import './pages.css'
 export default function Index() {
     return (
         <div>

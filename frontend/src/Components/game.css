@@ -1,23 +1,19 @@
-.game-container{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
+
 .game-grid{
     position: relative;
     margin: 30px auto;
-    border:3px solid #000;
-    width: 768px;
-    height: 576px;
+    border:2px solid #000;
+    width: 1159px;
+    height: 596px;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
 }
 
 .game-map{
-    width: 768px;
-    height: 576px;
-    background-image: url(../assets/mapa1.png);
+    width: 1152px;
+    height: 594px;
+    background-image: url(../assets/background.png);
 
 }
 
@@ -33,4 +29,11 @@
     height: 64px;
     background-color: aqua;
     
+}
+
+.checkpoint{
+    width: 43px;
+    height: 43px;
+    position: absolute;
+    background-image: url(../assets/checkpoint.png);
 }
