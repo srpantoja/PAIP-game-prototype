@@ -3,13 +3,13 @@ import useEventListener from '@use-it/event-listener'
 
 export default function Hero(props) {
 
-    const [posx, setPosx] = useState(40)
-    const [posy, setPosy] = useState(270)
+    const [posx, setPosx] = useState(50)
+    const [posy, setPosy] = useState(285)
 
     const max_step = 4
-    const [step, setStep] = useState(1)
+    const [step, setStep] = useState(0)
 
-    const size = 64
+    const size = 48
     const directions = {
         DOWN: 0,
         LEFT: size * 1,
@@ -68,12 +68,22 @@ export default function Hero(props) {
     }, [facing])
 
     return (
-        <div
-            style={{
-                top: posy,
-                left: posx,
-                backgroundPosition: `-${ step * size}px -${facing.current}px`
-            }}
-            className='hero' />
+        <div>
+            <strong style={{
+                    top: posy + 48,
+                    left: posx - 13,
+                    position: 'absolute',
+                    color: 'white',
+                    fontSize: '12px'
+                }}>Jean Pantoja</strong>
+            <div
+                style={{
+                    top: posy,
+                    left: posx,
+                    backgroundPosition: `-${step * size}px -${facing.current}px`
+                }}
+                className='hero' />
+        </div>
+
     )
 }

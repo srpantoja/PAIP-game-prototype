@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function Col(props) {
+function Col(props) {
     const position = () => {
         if(props.center) return 'text-center'
         if(props.left) return 'text-left'
@@ -13,3 +13,5 @@ export default function Col(props) {
         </div>
     )
 }
+
+export {Col} 

@@ -1,0 +1,34 @@
+.game-map {
+    width: 1152px;
+    height: 594px;
+    background-image: url(../../assets/background.png);
+}
+
+.hero {
+    width: 48px;
+    height: 48px;
+    position: absolute;
+    background-image: url(../../assets/male.png);
+}
+
+.male {
+    width: 48px;
+    height: 48px;
+    position: absolute;
+    background-image: url(../../assets/male.png);
+}
+
+.female {
+    width: 48px;
+    height: 48px;
+    position: absolute;
+    background-image: url(../../assets/female.png);
+}
+
+.checkpoint {
+    width: 48px;
+    height: 48px;
+    position: absolute;
+    background-size: 48px 48px;
+    background-image: url(../../assets/checkpoint.png);
+}

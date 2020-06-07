@@ -1,6 +1,11 @@
 import React from 'react'
 
-export default function Button(props) {
+function Button(props) {
+
+    const click = () => {
+        props.mouse_click()
+    }
+
     const outline = () => {
         if(props.outline) return '-outline'
         return ''
@@ -10,9 +15,11 @@ export default function Button(props) {
         return ''
     }
     return (
-        <button type="button" className={`btn btn${outline()}-${props.color} ${block()}`} >
+        <button type="button" onClick={click} className={`btn btn${outline()}-${props.color} ${block()}`} >
             {props.children}
         </button>
 
     )
 }
+
+export {Button}

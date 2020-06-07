@@ -3,7 +3,13 @@ form{
     min-width: 280px;
 }
 
-
 .card-opacity {
-    opacity: 0.8;
+    opacity: 0.90;
+}
+
+.cf {
+    width: 1152px;
+    height: 594px;
+    background-image: url(../../assets/background.jpeg);
+    background-size: 1152px 594px;
 }

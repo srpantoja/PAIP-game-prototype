@@ -1,9 +1,10 @@
 import React from 'react'
 
-export default function FromGroup(props) {
+function FormGroup(props) {
     return (
         <div className="form-group">
             {props.children}
         </div>
     )
 }
+export {FormGroup}
