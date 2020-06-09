@@ -3,6 +3,8 @@ import React from 'react'
 function Button(props) {
 
     const click = () => {
+        if(!props.mouse_click)
+            return
         props.mouse_click()
     }
 

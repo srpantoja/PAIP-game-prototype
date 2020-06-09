@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Card, CardBody, CardHeader } from '../bootstrapComponents/Cards'
-import { FormGroup, Button } from '../bootstrapComponents/Forms'
+import { Button } from '../bootstrapComponents/Forms'
 import { Col, Row } from '../bootstrapComponents/Grids'
 
 function NewGame() {

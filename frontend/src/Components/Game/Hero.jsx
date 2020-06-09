@@ -24,26 +24,19 @@ export default function Hero(props) {
 
     const move = (key) => {
         if (key === 'DOWN')
-            down_move()
+            for_n(8, () => setPosy(posy + 12))
         else if (key === 'UP')
-            up_move()
+            for_n(8, () => setPosy(posy - 12))
         else if (key === 'LEFT')
-            left_move()
+            for_n(8, () => setPosx(posx - 12))
         else if (key === 'RIGHT')
-            right_move()
+            for_n(8, () => setPosx(posx + 12))
     }
 
-    const left_move = () => {
-        setPosx(posx - 16)
-    }
-    const right_move = () => {
-        setPosx(posx + 16)
-    }
-    const up_move = () => {
-        setPosy(posy - 16)
-    }
-    const down_move = () => {
-        setPosy(posy + 16)
+    const for_n = (index, item) => {
+        for (let i = 0; i < index; i++) {
+            item()
+        }
     }
 
     useEventListener("keydown", ({ code }) => {
@@ -60,22 +53,27 @@ export default function Hero(props) {
     })
 
     useEffect(() => {
+        const interval = setInterval(() => {
+
+        }, 100)
         if (facing.current === facing.previous) {
             setStep(prevState => (prevState < max_step - 1 ? prevState + 1 : 0))
         } else {
             setStep(0)
         }
+        return () => clearInterval(interval);
     }, [facing])
+
 
     return (
         <div>
             <strong style={{
-                    top: posy + 48,
-                    left: posx - 13,
-                    position: 'absolute',
-                    color: 'white',
-                    fontSize: '12px'
-                }}>Jean Pantoja</strong>
+                top: posy + 48,
+                left: posx - 13,
+                position: 'absolute',
+                color: 'white',
+                fontSize: '12px'
+            }}>Jean Pantoja</strong>
             <div
                 style={{
                     top: posy,

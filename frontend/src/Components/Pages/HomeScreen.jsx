@@ -28,7 +28,7 @@ function HomeScreen() {
     const makeBtn = () => {
         switch (btn) {
             case 1:
-                return <Link to='/'><Button color='light' outline block>Carregar Jogo</Button></Link>
+                return <Link to='/LoadGame'><Button color='light' outline block>Carregar Jogo</Button></Link>
             case 2:
                 return <Link to='/NewGame'><Button color='light' outline block>Novo Jogo</Button></Link>
             case 3:
