@@ -1,6 +1,6 @@
 import React from 'react'
 import './game.css'
-import Hero from './Hero'
+import HeroContainer from './HeroContainer'
 import Event from './Event'
 export default function Game() {
     return (
@@ -12,7 +12,7 @@ export default function Game() {
             <Event name='checkpoint' left={676} top={405} />
             <Event name='checkpoint' left={825} top={450} />
             <Event name='checkpoint' left={985} top={499} />
-            <Hero offsettop={0} offsetleft={0} />
+            <HeroContainer offsettop={0} offsetleft={0} />
         </div>
 
     )
