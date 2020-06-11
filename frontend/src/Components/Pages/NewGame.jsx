@@ -5,9 +5,9 @@ import { Col, Row } from '../bootstrapComponents/Grids'
 
 function NewGame() {
 
-    const [selected, setSelected] = useState('none')
     const [opacity_man, setOpacity_man] = useState(0.6)
     const [opacity_woman, setOpacity_woman] = useState(0.6)
+    const [selected, setSelected] = useState('none')
     const [name, setName] = useState('none')
 
     const click_man = () => {
@@ -29,7 +29,7 @@ function NewGame() {
         else if (selected === 'none') {
             alert('Selecione Seu Personagem')
             return
-        }else if (name === 'none') {
+        } else if (name === 'none') {
             alert('Digite Seu Nome')
             return
         }
@@ -57,8 +57,8 @@ function NewGame() {
                     <CardBody>
                         <form>
                             <Col>
-                                <input type='text' className='form-control' placeholder='Digite seu nome' 
-                                onChange={(event) => setName(event.target.value)}/>
+                                <input type='text' className='form-control' placeholder='Digite seu nome'
+                                    onChange={(event) => setName(event.target.value)} />
                             </Col>
                             <p></p>
                             <Col center>

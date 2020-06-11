@@ -53,15 +53,12 @@ export default function Hero(props) {
     })
 
     useEffect(() => {
-        const interval = setInterval(() => {
-
-        }, 100)
+        
         if (facing.current === facing.previous) {
             setStep(prevState => (prevState < max_step - 1 ? prevState + 1 : 0))
         } else {
             setStep(0)
         }
-        return () => clearInterval(interval);
     }, [facing])
 
 
@@ -82,6 +79,5 @@ export default function Hero(props) {
                 }}
                 className='hero' />
         </div>
-
     )
 }
