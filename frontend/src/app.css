@@ -35,10 +35,6 @@ body {
     margin-bottom: 1rem;
 }
 
-.logo {
-    background-image: url(./assets/game_name.png);
-}
-
 .face_male{
     width: 144px;
     height: 144px;
