@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
+const router = require('./src/Router')
 
 app.use(express.json());
 
@@ -23,8 +24,6 @@ app.use((request, response, next) => {
     next();
 });
 
-app.get("/", (req, res) => {
-    res.send("hello world")
-})
+app.use(router)
 
 app.listen(8000);
