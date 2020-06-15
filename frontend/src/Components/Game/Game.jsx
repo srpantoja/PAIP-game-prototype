@@ -3,19 +3,23 @@ import './game.css'
 import Hero from './Hero'
 import Event from './Event'
 import useEventListener from '@use-it/event-listener'
+import Challenger from './Challenger'
 
 export default function Game() {
     const default_stages = [
-        { x: 50, y: 301 },
-        { x: 145, y: 405 },
-        { x: 387, y: 450 },
-        { x: 676, y: 405 },
-        { x: 825, y: 450 },
-        { x: 985, y: 499 },
+        { stage: 'Informações necessárias', x: 50, y: 295 },
+        { stage: 'Biblioteca do centro de tecnologia', x: 140, y: 400 },
+        { stage: 'Biblioteca de Sistemas e Midias Digitais', x: 387, y: 450 },
+        { stage: 'Biblioteca de Matemática', x: 676, y: 405 },
+        { stage: 'Biblioteca de Física', x: 825, y: 450 },
+        { stage: 'Biblioteca de Química', x: 985, y: 499 },
     ]
+    const [key_press, setKey_press] = useState(false)
+
+    const [stage, setStage] = useState('Informações necessárias')
 
     const [posx, setPosx] = useState(50)
-    const [posy, setPosy] = useState(285)
+    const [posy, setPosy] = useState(275)
 
     const max_step = 4
     const [step, setStep] = useState(0)
@@ -35,19 +39,19 @@ export default function Game() {
 
     const action_key = (key) => {
         if (key === 'DOWN') {
-            let timerId = setTimeout(function tick() {
-                console.log(posy)
-                setPosy(posy + 12)
-                timerId = setTimeout(tick, 1000); // (*)
-            }, 1000);
+            setPosy(posy + 10)
         } else if (key === 'UP')
-            setPosy(posy - 12)
+            setPosy(posy - 10)
         else if (key === 'LEFT')
-            setPosx(posx - 12)
+            setPosx(posx - 10)
         else if (key === 'RIGHT')
-            setPosx(posx + 12)
-        else if (key === 'ENTER')
-            alert('EVENTO')
+            setPosx(posx + 10)
+        else if (key === 'ENTER' && stage !== 'null') {
+            if (key_press === false)
+                setKey_press(true)
+            else
+                setKey_press(false)
+        }
     }
 
     useEventListener("keydown", ({ code }) => {
@@ -60,7 +64,7 @@ export default function Game() {
             previous: prevState.current
         }))
         action_key(code_key)
-        console.log("renderizando..")
+
     })
 
     useEffect(() => {
@@ -71,11 +75,37 @@ export default function Game() {
         }
     }, [facing])
 
+    const colision = (event_x, event_y) => {
+        if (event_x < posx + 48 &&
+            event_x + 48 > posx &&
+            event_y < posy + 48 &&
+            event_y + 48 > posy) {
+            console.log('teste')
+            return true
+        } return false
+    }
+
+    useEffect(() => {
+        console.log('y: ' + posy + 'x: ' + posx)
+        let colide = false
+        default_stages.map((item, index) => {
+            if (colision(item.x, item.y)) {
+                colide = true
+                return setStage(item.stage)
+            }
+        })
+        if (colide === false) {
+            setStage('null')
+            setKey_press(false)
+        }
+        console.log(stage)
+    }, [posy, posx])
+
     return (
         <div>
             <div className='game-map' />
             {default_stages.map((item, index) =>
-                <Event name='checkpoint' pos={item} />
+                <Event name='checkpoint' info={item} stage={stage} press={key_press} />
             )}
             <Hero
                 posy={posy}
