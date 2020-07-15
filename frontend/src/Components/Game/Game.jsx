@@ -4,8 +4,14 @@ import Hero from './Hero'
 import Event from './Event'
 import useEventListener from '@use-it/event-listener'
 import Challenger from './Challenger'
+import api from '../../api/index'
 
-export default function Game() {
+export default function Game(props) {
+    let studentId = "5f0f472886b44e227b99dbe3"
+    if (props.location.state) {
+        studentId = props.location.state.studentId
+    }
+
     const default_stages = [
         { stage: 'Informações necessárias', x: 50, y: 295 },
         { stage: 'Biblioteca do centro de tecnologia', x: 140, y: 400 },
@@ -14,6 +20,34 @@ export default function Game() {
         { stage: 'Biblioteca de Física', x: 825, y: 450 },
         { stage: 'Biblioteca de Química', x: 985, y: 499 },
     ]
+
+    const [stageQuestions, setStageQuestions] = useState()
+
+    useEffect(() => {
+        async function fetchChallenges() {
+            const apiResponse = await api.challenges()
+            const challenges = apiResponse.data
+
+            function challengesReducer(result, currentChallenge) {
+                const currentStage = default_stages[currentChallenge.area].stage
+
+                if (result[currentStage]) {
+                    result[currentStage].push(currentChallenge)
+                    return result
+                }
+                
+                result[currentStage] = [currentChallenge]
+                return result
+            }
+
+            const stageToChallenge = challenges.reduce(challengesReducer, {})
+            console.log(stageToChallenge)
+            setStageQuestions(stageToChallenge)
+        }
+
+        fetchChallenges()
+    }, [])
+
     const [key_press, setKey_press] = useState(false)
 
     const [stage, setStage] = useState('Informações necessárias')
@@ -105,7 +139,7 @@ export default function Game() {
         <div>
             <div className='game-map' />
             {default_stages.map((item, index) =>
-                <Event name='checkpoint' info={item} stage={stage} press={key_press} />
+                <Event name='checkpoint' studentId={studentId} challenges={stageQuestions && stageQuestions[item.stage]} info={item} stage={stage} press={key_press} />
             )}
             <Hero
                 posy={posy}

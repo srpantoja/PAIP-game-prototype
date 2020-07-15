@@ -2,8 +2,45 @@ import React, { useState } from 'react'
 import { Card, CardBody, CardHeader } from '../bootstrapComponents/Cards'
 import { Button } from '../bootstrapComponents/Forms'
 import { Col, Row } from '../bootstrapComponents/Grids'
+import axios from 'axios'
+import './clickableRow.css'
 
 export default function Challenger(props) {
+    const challenge = props.challenge
+    const setSelectedChallenge = props.setSelectedChallenge
+    const [fileToSubmit, setFileToSubmit] = useState({})
+    const [hasSubmitResult, setHasSubmitResult] = useState(false)
+    const [submitResult, setSubmitResult] = useState(false)
+    const studentId = props.studentId
+
+    function handleSubmit(event) {
+        event.preventDefault()
+
+        const jsonData = {
+            studentId,
+            challengeId: challenge._id
+        }
+
+        const data = new FormData()
+        data.append('data', JSON.stringify(jsonData))
+        data.append('code', fileToSubmit)
+
+        async function axiosSubmit() {
+            const request = axios({
+                method: 'post',
+                url: 'http://localhost:8000/submit',
+                data: data
+            })
+
+            const response = await request
+            setHasSubmitResult(true)
+            console.log(response.data)
+            setSubmitResult(response.data.result)
+        }
+
+        axiosSubmit()
+    }
+
     return (
         <div style={{ left: '25%', top: '25%', position: 'absolute' }}>
             <Card text='white' bg='secondary'>
@@ -13,36 +50,52 @@ export default function Challenger(props) {
                 <CardBody text='secondary' bg='white' >
                     <Row>
                         <Col center>
-                            Aprendendo a somar
+                            {challenge.name}
                         </Col>
-                        <Col center>
-                            Matemática
-                        </Col>
+
                     </Row>
                     <Row>
                         <Col center>
                             Descrição da questão:
-                            <p>Faça uma questão que some toda entrada em +1</p>
                         </Col>
                     </Row>
                     <Row>
                         <Col center>
-                            Exemplos de entrada:
-                            <p>1 --- 2</p>
-                            <p>3 --- 4</p>
-                            <p>9 --- 10</p>
+                            {challenge.description}
                         </Col>
                     </Row>
                     <Row>
                         <Col center>
-                            <form>
+                            <form onSubmit={handleSubmit}>
                                 <div className="form-group">
-                                    <input type="file" className="form-control-file" id="exampleFormControlFile1" />
+                                    <input onChange={e => setFileToSubmit(e.target.files[0])} type="file" className="form-control-file" id="exampleFormControlFile1" />
+                                    <input type="submit" value="Enviar"/>
                                 </div>
                             </form>
                         </Col>
                     </Row>
 
+                    { hasSubmitResult &&
+                    (submitResult ?
+                    (<Row>
+                        <Col center>
+                            sucesso
+                        </Col>
+                    </Row>) :
+                    (<Row>
+                        <Col center>
+                            falha
+                        </Col>
+                    </Row>))   
+                    }
+
+                    <div onClick={e => setSelectedChallenge(undefined)} className="clickableRow">
+                        <Row>
+                            <Col center>
+                                Voltar
+                            </Col>
+                        </Row>
+                    </div>
                 </CardBody>
             </Card>
         </div>
