@@ -3,7 +3,7 @@ import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import './app.css';
 import Game from './Components/Game/Game';
-import { HomeScreen, LoadGame, NewGame } from './Components/Pages';
+import { HomeScreen, LoadGame, NewGame, RegisterQuestions } from './Components/Pages';
 
 function App() {
   return (
@@ -14,6 +14,7 @@ function App() {
           <Route path={'/NewGame'} component={NewGame} />
           <Route path={'/Game'} component={Game} />
           <Route path={'/LoadGame'} component={LoadGame} />
+          <Route path={'/RegisterQuestions'} component={RegisterQuestions} />
         </Switch>
       </div>
     </div>
