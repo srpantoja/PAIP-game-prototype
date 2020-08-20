@@ -1,0 +1,20 @@
+.tile {
+    z-index: 0;
+    display: inline-flex;
+    background-image: url('../../data/tiles/Tilesets/grass.png');
+}
+
+.tile.rock {
+    z-index: 1;
+    background-image: url('../../data/tiles/Tilesets/rock.png');
+}
+
+.tile.tree {
+    z-index: 1;
+    background-image: url('../../data/tiles/Tilesets/three.png');    
+}
+
+.tile.chest {
+    z-index: 1;
+    background-image: url('../../data/tiles/Tilesets/chest.png')
+}
