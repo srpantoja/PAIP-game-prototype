@@ -11,6 +11,10 @@ export const EAST = 'EAST'
 export const MAP_HEIGHT = 10 * SPRITE_SIZE
 export const MAP_WIDTH = 20 * SPRITE_SIZE
 
+export const QST = 1 //QUEST
+export const CLN = 2 //COLISION
+export const QCN = 3 //QUEST COLISION
+
 export const NUL = -1
 export const GRS = 0
 export const TRE = 1

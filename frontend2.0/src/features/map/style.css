@@ -1,9 +1,8 @@
 .tile {
     z-index: 0;
     display: inline-flex;
-    background-image: url('../../data/tiles/Tilesets/grass.png');
 }
-
+ 
 .tile.rock {
     z-index: 1;
     background-image: url('../../data/tiles/Tilesets/rock.png');
@@ -17,4 +16,10 @@
 .tile.chest {
     z-index: 1;
     background-image: url('../../data/tiles/Tilesets/chest.png')
+}
+
+.map{
+    background-image: url('../../data/maps/1/mapa1.png');
+    width: 800px;
+    height: 400px;
 }

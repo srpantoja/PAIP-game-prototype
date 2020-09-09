@@ -1,29 +1,28 @@
 import React from 'react'
-import { SPRITE_SIZE, GRS, TRE, ROK, CHS, MAP_HEIGHT, MAP_WIDTH } from '../../config/constants'
-import './style.css' 
+import { SPRITE_SIZE, GRS, TRE, ROK, CHS, MAP_HEIGHT, MAP_WIDTH, QCN, QST, CLN } from '../../config/constants'
+import './style.css'
 import { connect } from 'react-redux'
 import { setTiles } from './environment'
 
 function MapTile(props) {
 
-    function getTileSprite(type) {
+    function getTileEvent(type) {
         switch (type) {
-            case GRS:
-                return 'grass'
-            case ROK:
-                return 'rock'
-            case TRE:
-                return 'tree'
-            case CHS:
-                return 'chest'
+            case QST:
+                return 'quest'
+            case QCN:
+                return 'quest_colision'
+            case CLN:
+                return 'colision'
             default:
-                return 'invalid'
+                break;
         }
     }
+ 
 
     return (
-        <div 
-            className={`tile ${getTileSprite(props.tile)}`}
+        <div
+            className={`tile ${getTileEvent(props.tile)}`}
             style={{
                 height: SPRITE_SIZE,
                 width: SPRITE_SIZE
@@ -34,11 +33,11 @@ function MapTile(props) {
 
 function MapRow(props) {
     return (
-        <div style={{height: `${SPRITE_SIZE}px`}}>
+        <div style={{ height: `${SPRITE_SIZE}px` }}>
             {
                 props.tiles.map(
-                    (tile,index) => {
-                        return <MapTile tile={tile} key={index}/>
+                    (tile, index) => {
+                        return <MapTile tile={tile} key={index} />
                     }
                 )
             }
@@ -60,8 +59,10 @@ function Map(props) {
     }
 
     checkChest(props.position)
+
+    
     return (
-        <div
+        <div className='map'
             style={{
                 position: 'relative',
                 top: '0px',
@@ -79,11 +80,12 @@ function Map(props) {
             }
         </div>
     )
+    
 }
 
-function mapStateToProps(state){
+function mapStateToProps(state) {
     return {
-        tiles : state.map.tiles,
+        tiles: state.map.tiles,
         position: state.player.position //importante, dispara a renderização do mapa
     }
 }
@@ -91,12 +93,12 @@ function mapStateToProps(state){
 function mapDispatchToProps(dispatch) {
     return {
         setTiles(tiles) {
-           const action = setTiles(tiles)
-           dispatch(action)
+            const action = setTiles(tiles)
+            dispatch(action)
         }
     }
 }
 
 
-export default connect(mapStateToProps,mapDispatchToProps)(Map)
+export default connect(mapStateToProps, mapDispatchToProps)(Map)
 

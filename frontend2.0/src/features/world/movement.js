@@ -1,4 +1,4 @@
-import { WEST, EAST, NORTH, SOUTH, SPRITE_SIZE, MOVE_PLAYER, MAP_HEIGHT, MAP_WIDTH, ROK, TRE, TOTAL_STEPS } from '../../config/constants'
+import { WEST, EAST, NORTH, SOUTH, SPRITE_SIZE, MOVE_PLAYER, MAP_HEIGHT, MAP_WIDTH, ROK, TRE, TOTAL_STEPS, CLN, QCN } from '../../config/constants'
 import store from '../../config/store'
 
 //action
@@ -30,6 +30,17 @@ export function moveToPosition(direction) {
         return false
     }
 
+    function detectEventCollid(position){
+        const tiles = store.getState().map.tiles
+        const x = position[0] / SPRITE_SIZE // o x do personagem na tela, é o j do obstáculo na matriz
+        const y = position[1] / SPRITE_SIZE // o y do personagem na tela, é o i do obstáculo na matriz
+        
+        if(tiles[y][x] === CLN || tiles[y][x] === QCN){
+            return true
+        }
+        return false
+    }
+
     function isObstacleColliding(position) {
         const tiles = store.getState().map.tiles
         const x = position[0] / SPRITE_SIZE // o x do personagem na tela, é o j do obstáculo na matriz
@@ -46,7 +57,7 @@ export function moveToPosition(direction) {
         return (
             isPositionInsideBoundaries(newPos)
                 &&
-                !isObstacleColliding(newPos)
+                !detectEventCollid(newPos)
                 ? newPos : oldPos
         )
     }
