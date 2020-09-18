@@ -11,15 +11,15 @@ function Player(props) {
         return `-${pixel}px`
     }
 
-    function getFacingPixel(facing) {
+    function getFacingPixel(facing) { // direciona para onde o personagem olha
         switch (facing) {
-            case SOUTH:
+            case SOUTH: // direciona para Baixo
                 return `${SPRITE_SIZE*0}px`
-            case NORTH:
+            case NORTH: // direciona para Cima
                 return `-${SPRITE_SIZE}px`
-            case WEST:
+            case WEST: // direciona para Esquerda
                 return `-${SPRITE_SIZE*2}px`
-            case EAST:
+            case EAST: // direciona para Direita
                 return `-${SPRITE_SIZE*3}px`
             default:
                 console.log('INVALID FACING')
@@ -45,7 +45,7 @@ function Player(props) {
 
 }
 
-function mapStateToProps(state) {
+function mapStateToProps(state) { // retorna o estado do mapa em relação ao personagem
     return {
         position: state.player.position,
         facing: state.player.facing,
