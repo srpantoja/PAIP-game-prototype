@@ -1,5 +1,5 @@
 const router = require('express').Router()
-const challengeController = require('./Controller')
+const challengeController = require('../controllers/ChallengeController')
 
 router.get("/", challengeController.index)
 router.post("/", challengeController.create)

@@ -1,6 +1,6 @@
-const Student = require("./Model")
+const Student = require("../models/Student")
 
-class Controller {
+class StudentController {
     async index(req, res) {
         const students = await Student.find({})
 
@@ -20,4 +20,4 @@ class Controller {
     }
 }
 
-module.exports = new Controller()
+module.exports = new StudentController()

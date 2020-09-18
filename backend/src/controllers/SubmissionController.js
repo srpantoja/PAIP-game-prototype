@@ -1,9 +1,10 @@
-const Submit = require("./Model")
-const Challenge = require('../Challenges/Model')
-const submissionCodeHandler = require('./InvokeSubmission')
-const validationHandler = require('./ValidateOutput')
+const Submit = require("../models/Submission")
+const Challenge = require('../models/Challenge')
+const submissionCodeHandler = require('../utils/SubmissionCodeHandler')
+const validationHandler = require('../utils/OutputValidator')
+const fileHandler = require('../utils/SubmissionFileHandler')
 
-class Controller {
+class SubmissionController {
     async index(req, res) {
         // TODO implement me
     }
@@ -13,18 +14,17 @@ class Controller {
     }
 
     async create(req, res) {
-        console.log(req.file)
-        const { data } = req.body        
-        console.log(data)
-        const { challengeId, studentId } = JSON.parse(data)
+        const { challengeId, studentId, code } = req.body
         
         const challenge = await Challenge.findById(challengeId)
+        const fileName = `${challengeId}-${studentId}.py`
+        const filePath = await fileHandler.create(fileName, code)
 
         async function handleSubmissionError(error) {
             const createdSubmission = await Submit.create({
                 studentId,
                 challengeId,
-                code: req.file.path,
+                code: filePath,
                 result: false
             })
 
@@ -37,16 +37,16 @@ class Controller {
             const createdSubmission = await Submit.create({
                 studentId,
                 challengeId,
-                code: req.file.path,
+                code: filePath,
                 result
             })
 
             res.json(createdSubmission)
         }
 
-        submissionCodeHandler(req.file.path, challenge.inputFile,
+        submissionCodeHandler(filePath, challenge.inputFile,
             handleSubmissionError, handleSubmissionSuccess)
     }
 }
 
-module.exports = new Controller()
+module.exports = new SubmissionController()
