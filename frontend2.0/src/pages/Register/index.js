@@ -3,7 +3,7 @@ import './style.css'
 import MainGame from '../../components/MainGame'
 import { Link } from 'react-router-dom'
 
-function MainPage() {
+function MainPage() { //Tela de registro do usuário. Recebe as informações.
     return (
         <MainGame>
             <form>
