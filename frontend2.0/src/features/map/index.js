@@ -6,7 +6,7 @@ import { setTiles } from './environment'
 
 function MapTile(props) {
 
-    function getTileEvent(type) {
+    function getTileEvent(type) { // retorna o tipo do tile
         switch (type) {
             case QST:
                 return 'quest'
@@ -47,7 +47,7 @@ function MapRow(props) {
 
 function Map(props) {
 
-    function checkChest(position) {
+    function checkChest(position) { // verifica se há chest na posição indicada
         const x = position[0] / SPRITE_SIZE // o x do personagem na tela, é o j do obstáculo na matriz
         const y = position[1] / SPRITE_SIZE // o y do personagem na tela, é o i do obstáculo na matriz
         //console.log(`[${x},${y}]`)
