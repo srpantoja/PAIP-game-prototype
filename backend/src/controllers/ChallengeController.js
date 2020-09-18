@@ -1,7 +1,7 @@
-const Challenge = require("./Model")
-const fileHandler = require('./Files')
+const Challenge = require("../models/Challenge")
+const fileHandler = require('../utils/ChallengeFileHandler')
 
-class Controller {
+class ChallengeController {
     async index(req, res) {
         const challenges = await Challenge.find({})
 
@@ -25,4 +25,4 @@ class Controller {
     }
 }
 
-module.exports = new Controller()
+module.exports = new ChallengeController()

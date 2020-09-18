@@ -1,5 +1,5 @@
 const router = require('express').Router()
-const studentController = require('./Controller')
+const studentController = require('../controllers/StudentController')
 
 router.get("/", studentController.index)
 router.post("/", studentController.create)

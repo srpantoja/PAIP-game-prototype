@@ -1,7 +1,7 @@
 const router = require('express').Router()
-const studentRoutes = require('./Students/Router')
-const challengeRoutes = require('./Challenges/Router')
-const submitRoutes = require('./Submits/Router')
+const studentRoutes = require('./StudentRouter')
+const challengeRoutes = require('./ChallengeRouter')
+const submitRoutes = require('./SubmissionRouter')
 
 router.use('/students', studentRoutes)
 router.use('/challenges', challengeRoutes)
