@@ -12,3 +12,39 @@ body {
   align-items: 'center';
   justify-content: 'center';
 }
+
+
+
+
+::placeholder {
+  color: #48B8FA;
+  opacity: 1;
+  /* Firefox */
+}
+
+:-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  color:  #48B8FA;
+}
+
+::-ms-input-placeholder {
+  /* Microsoft Edge */
+  color:  #48B8FA;
+}
+
+[type=radio] { 
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+[type=radio] + img {
+  cursor: pointer;
+}
+
+[type=radio]:checked + img {
+  border: 1px solid #FFF;
+  transition: 0.3s;
+  opacity: 0.8;
+}

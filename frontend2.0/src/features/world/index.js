@@ -39,7 +39,7 @@ function World(props) {
                 position: 'relative',
                 width: `${MAP_WIDTH}px`,
                 height:`${MAP_HEIGHT}px`,
-                margin: '20px auto',
+                margin:'6% auto',
                 outline: '0px',
                 borderStyle: 'solid',
                 borderColor: 'white'

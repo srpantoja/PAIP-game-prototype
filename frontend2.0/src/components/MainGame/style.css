@@ -1,0 +1,19 @@
+.game-container {
+    position: 'relative';
+    width: 960px;
+    height: 480px;
+    margin: 6% auto;
+    outline: 0px;
+    border: 2px solid #ffffff;
+    background: 970px 560px url('../../assets/background.jpeg');
+}
+
+.title{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    font: 700 50px Poppins;
+    margin-top: 90px;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}

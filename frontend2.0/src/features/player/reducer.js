@@ -3,7 +3,7 @@ import { MOVE_PLAYER, SOUTH } from '../../config/constants'
 const initialState = {
     position: [80,80],
     facing: SOUTH,
-    step: 1 // 0 to 7
+    step: 1 // 1 a 3 
 }
 
 const playerReducer = (state=initialState, action) => {

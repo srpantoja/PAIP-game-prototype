@@ -8,8 +8,8 @@ export const NORTH = 'NORTH'
 export const SOUTH = 'SOUTH'
 export const EAST = 'EAST'
 
-export const MAP_HEIGHT = 10 * SPRITE_SIZE
-export const MAP_WIDTH = 20 * SPRITE_SIZE
+export const MAP_HEIGHT = 12 * SPRITE_SIZE
+export const MAP_WIDTH = 24 * SPRITE_SIZE
 
 export const QST = 1 //QUEST
 export const CLN = 2 //COLISION

@@ -79,8 +79,7 @@ function Map(props) {
                 )
             }
         </div>
-    )
-    
+    )   
 }
 
 function mapStateToProps(state) {
@@ -101,4 +100,3 @@ function mapDispatchToProps(dispatch) {
 
 
 export default connect(mapStateToProps, mapDispatchToProps)(Map)
-

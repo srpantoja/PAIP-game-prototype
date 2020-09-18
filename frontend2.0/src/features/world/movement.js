@@ -8,9 +8,9 @@ export function moveToPosition(direction) {
         const oldPos = store.getState().player.position
         switch (direction) {
             case WEST:
-                return [oldPos[0] - SPRITE_SIZE, oldPos[1]]
+                return [oldPos[0] - SPRITE_SIZE, oldPos[1]] // movimentar para Esquerda
             case EAST:
-                return [oldPos[0] + SPRITE_SIZE, oldPos[1]]
+                return [oldPos[0] + SPRITE_SIZE, oldPos[1]] // movimentar para Direita
             case NORTH:
                 return [oldPos[0], oldPos[1] - SPRITE_SIZE]
             case SOUTH:
@@ -19,10 +19,10 @@ export function moveToPosition(direction) {
                 return oldPos
         }
     }
-
+ 
     function isPositionInsideBoundaries(position) {
         if (
-            (position[0] >= 0 && position[0] <= MAP_WIDTH - SPRITE_SIZE)
+            (position[0] >= 0 && position[0] <= MAP_WIDTH - SPRITE_SIZE) 
             &&
             (position[1] >= 0 && position[1] <= MAP_HEIGHT - SPRITE_SIZE)
         )

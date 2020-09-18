@@ -1,10 +1,11 @@
 import React from 'react'
-import World from './features/world'
+
+import Routes from './routes'
 
 function App() {
   return (
     <div>
-      <World />
+      <Routes />
     </div>
   );
 }

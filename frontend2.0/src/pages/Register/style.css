@@ -1,0 +1,106 @@
+
+.button-container:first-child {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.button-container input {
+    margin-top: 10px;
+    width: 220px;
+    height: 40px;
+    background-color: #F8F8FC;
+    border-radius: 10px;
+    border: 1px solid #F8F8FC;
+    outline: 0;
+    padding: 0 15px;
+    font: 700 16px Poppins;
+}
+
+.button-container select {
+    margin-top: 10px;
+    width: 252px;
+    height: 42px;
+    color:  #48B8FA;
+    background-color: #F8F8FC;
+    border-radius: 10px;
+    border: 1px solid #F8F8FC;
+    outline: 0;
+    padding: 0 15px;
+    font: 700 16px Poppins;
+}
+
+
+.button-container input:first-child {
+    margin-left: 20px;
+}
+
+
+.button-container a {
+    width: 120px;
+    height: 40px;
+    border: 2px solid #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+    text-decoration: none;
+    border-radius: 10px;
+    background-color: #ffffff;
+    color: #48B8FA;
+    transition: 0.3s;
+    font: 700 18px Poppins;
+}
+
+.button-container input, a, select {
+    margin-right: 20px;
+}
+
+.button-container a:hover {
+    border: 2px solid #ffffff;
+    border-radius: 10px;
+    background-color: #48B8FA;
+    color: #ffffff;
+}
+
+.image-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.image-container .image-man{
+    width: 100px;
+    height: 100px;
+    border: 1px solid #000;
+    margin-right: 30px;
+
+
+}
+
+.image-container .image-woman{
+    width: 100px;
+    height: 100px;
+    border: 0.5px solid #000;
+
+}
+
+.select{
+    margin-top: 5px;
+    font-size: 20px;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+.select:first-child{
+    margin-bottom: -20px;
+}
+
+form{
+    margin-top:-60px;
+}
+
+.register a{
+    margin-top: -30px;
+}
+
