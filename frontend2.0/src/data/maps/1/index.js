@@ -12,3 +12,5 @@ export const tiles = [
     [CLN,CLN,QST,CLN,QST,QST,QST,QST,CLN,CLN,CLN,QCN,QST,QST,QST,QST,QST,QST,QST,CLN],
     [CLN,CLN,CLN,CLN,CLN,CLN,CLN,CLN,CLN,CLN,CLN,CLN,CLN,CLN,CLN,CLN,CLN,CLN,CLN,CLN]
 ]
+
+//Matriz do mapa do jogo. Define as posições das colisões e quests.
