@@ -6,7 +6,7 @@ import Register from './pages/Register'
 import MainPage from './pages/MainPage'
 import World from './features/world'
 
-function routes(){
+function routes(){ // direciona os botões do menu principal
     return(
         <BrowserRouter>
             <Route path="/" exact component={MainPage}/>
