@@ -5,6 +5,7 @@ import Login from './pages/Login'
 import Register from './pages/Register'
 import MainPage from './pages/MainPage'
 import World from './features/world'
+import CadastroQuestoes from './pages/CadastroQuestoes'
 
 function routes(){
     return(
@@ -13,6 +14,7 @@ function routes(){
             <Route path="/login" component={Login}/>
             <Route path='/game' component={World} />
             <Route path='/register' component={Register} />
+            <Route path='/cadquest' component={CadastroQuestoes} />
         </BrowserRouter>
     )
 }

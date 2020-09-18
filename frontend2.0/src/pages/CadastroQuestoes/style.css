@@ -1,0 +1,94 @@
+.grid-container {
+    display: grid;
+    grid-template-areas: 'name description' 'knowledgearea description' 'input output'  'cadquest cadquest';
+    grid-gap: 5px;
+    margin: 40px auto;
+    margin-left: 215px;
+    margin-right: 215px;
+}
+
+.name {
+    grid-area: name;
+
+}
+
+.knowledgearea {
+    grid-area: knowledgearea;
+}
+
+.description {
+    grid-area: description;
+}
+
+.input {
+    grid-area: input;
+}
+
+.output {
+    grid-area: output;
+
+}
+
+.cadquest{
+    grid-area: cadquest;
+    margin: 0 auto;
+    margin-left: 215px;
+}
+
+.name , textarea {
+    background-color: #F8F8FC;
+    border-radius: 10px;
+    border: 1px solid #F8F8FC;
+    outline: 0;
+    font: 700 16px Poppins;
+    padding: 0 15px;
+
+
+}
+
+textarea {
+    max-width: 220px;
+    min-width: 220px;
+    max-height: 92px;
+    min-height: 92px;
+}
+
+.name {
+    width: 220px;
+    height: 40px;
+}
+
+select {
+    width: 252px;
+    height: 42px;
+    color: #48B8FA;
+    background-color: #F8F8FC;
+    border-radius: 10px;
+    border: 1px solid #F8F8FC;
+    outline: 0;
+    padding: 0px 15px;
+    font: 700 16px Poppins;
+}
+
+.cadquest  {
+    width: 120px;
+    height: 40px;
+    border: 2px solid #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+    text-decoration: none;
+    border-radius: 10px;
+    background-color: #ffffff;
+    color: #48B8FA;
+    transition: 0.3s;
+    font: 700 18px Poppins;
+}
+
+.cadquest:hover {
+    border: 2px solid #ffffff;
+    border-radius: 10px;
+    background-color: #48B8FA;
+    color: #ffffff;
+}
