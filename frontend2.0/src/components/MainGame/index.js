@@ -1,7 +1,7 @@
 import React from 'react'
 import './style.css'
 
-function MainPage(props) {
+function MainPage(props) { // adiciona o título do jogo
     return (
         <div className='game-container'>
             <h2 className='title'>CÓDIGO VENTURA ;</h2>
