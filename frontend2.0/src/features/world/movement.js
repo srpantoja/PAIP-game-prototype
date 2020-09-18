@@ -12,15 +12,15 @@ export function moveToPosition(direction) {
             case EAST:
                 return [oldPos[0] + SPRITE_SIZE, oldPos[1]] // movimentar para Direita
             case NORTH:
-                return [oldPos[0], oldPos[1] - SPRITE_SIZE]
+                return [oldPos[0], oldPos[1] - SPRITE_SIZE] // movimentar para Cima
             case SOUTH:
-                return [oldPos[0], oldPos[1] + SPRITE_SIZE]
+                return [oldPos[0], oldPos[1] + SPRITE_SIZE] // movimentar para Baixo
             default:
                 return oldPos
         }
     }
  
-    function isPositionInsideBoundaries(position) {
+    function isPositionInsideBoundaries(position) { // verifica se a posição está dentro dos limites do mapa
         if (
             (position[0] >= 0 && position[0] <= MAP_WIDTH - SPRITE_SIZE) 
             &&
@@ -30,7 +30,7 @@ export function moveToPosition(direction) {
         return false
     }
 
-    function detectEventCollid(position){
+    function detectEventCollid(position){ // verifica se o local é uma colisão
         const tiles = store.getState().map.tiles
         const x = position[0] / SPRITE_SIZE // o x do personagem na tela, é o j do obstáculo na matriz
         const y = position[1] / SPRITE_SIZE // o y do personagem na tela, é o i do obstáculo na matriz
@@ -41,7 +41,7 @@ export function moveToPosition(direction) {
         return false
     }
 
-    function isObstacleColliding(position) {
+    function isObstacleColliding(position) { // verifica se o local é uma colisão (versão antiga)
         const tiles = store.getState().map.tiles
         const x = position[0] / SPRITE_SIZE // o x do personagem na tela, é o j do obstáculo na matriz
         const y = position[1] / SPRITE_SIZE // o y do personagem na tela, é o i do obstáculo na matriz
@@ -51,7 +51,7 @@ export function moveToPosition(direction) {
         return false
     }
     
-    function attemptMove(direction) {
+    function attemptMove(direction) { // tenta mover o personagem (caso o local não seja um obstáculo ou fora do mapa)
         const oldPos = store.getState().player.position
         const newPos = getNewPosition(direction)
         return (
@@ -62,12 +62,12 @@ export function moveToPosition(direction) {
         )
     }
 
-    function advanceStep() {
+    function advanceStep() { 
         const step = store.getState().player.step
         return (step + 1 === TOTAL_STEPS) ? 0 : step + 1
     }
 
-    return {
+    return { // realiza o movimento
         type: MOVE_PLAYER,
         payload: {
             position: attemptMove(direction),
