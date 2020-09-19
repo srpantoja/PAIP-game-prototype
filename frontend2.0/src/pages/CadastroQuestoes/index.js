@@ -17,9 +17,9 @@ function MainPage() {
                         <option value="BM" >Biomedicina</option>
                         <option value="null" selected>Selecione o curso</option>
                     </select>
-                    <textarea type='textarea' placeholder='Descrição'  rows='5' cols='5' className='description' />
-                    <textarea type='textarea' placeholder='Entrada' rows='5' cols='5' className='input' />
-                    <textarea type='textarea' placeholder='Saída' rows='5' cols='5' className='output' />
+                    <textarea className='textarea-cad' type='textarea' placeholder='Descrição'  rows='5' cols='5' className='description' />
+                    <textarea className='textarea-cad' type='textarea' placeholder='Entrada' rows='5' cols='5' className='input' />
+                    <textarea className='textarea-cad' type='textarea' placeholder='Saída' rows='5' cols='5' className='output' />
                     <input type='submit' value='Cadastrar' className='cadquest'/>
                 </div>
             </form>

@@ -8,7 +8,7 @@ import { WEST, EAST, NORTH, SOUTH, MAP_HEIGHT, MAP_WIDTH } from '../../config/co
 import { moveToPosition } from './movement'
 import { setTiles } from '../map/environment'
 import { tiles } from '../../data/maps/1'
-
+import Challenges from '../../components/Challenges'
 
 function World(props) {
 
@@ -39,7 +39,7 @@ function World(props) {
                 position: 'relative',
                 width: `${MAP_WIDTH}px`,
                 height:`${MAP_HEIGHT}px`,
-                margin:'6% auto',
+                margin:'3% 3%',
                 outline: '0px',
                 borderStyle: 'solid',
                 borderColor: 'white'
@@ -54,6 +54,7 @@ function World(props) {
         >
             <Map />
             <Player />
+            <Challenges />
         </div>
     )
 }
