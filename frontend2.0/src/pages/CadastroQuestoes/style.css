@@ -1,6 +1,6 @@
 .grid-container {
     display: grid;
-    grid-template-areas: 'name description' 'knowledgearea description' 'input output'  'cadquest cadquest';
+    grid-template-areas: 'name description' 'input description' 'input output'  'cadquest cadquest';
     grid-gap: 5px;
     margin: 40px auto;
     margin-left: 215px;
@@ -13,7 +13,8 @@
 }
 
 .knowledgearea {
-    grid-area: knowledgearea;
+    margin-top: 50px;
+    grid-area: name;
 }
 
 .description {
@@ -25,6 +26,7 @@
 }
 
 .output {
+    margin-top: -100px;
     grid-area: output;
 
 }

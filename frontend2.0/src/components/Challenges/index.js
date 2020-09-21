@@ -3,36 +3,15 @@ import './style.css'
 
 function Challenges(props) {
     return (
-        <>
-            <div className='text-container'>
-                <div className='textbox'>
-                    <img className='img' src={img} />
-                    <span className='text'>
-                        Testando testando testando
-                        Testando testando testando
-                        Testando testando testando
-                        Testando testando testando
-                        Testando testando testando
-                        Testando testando testando
-                        Testando testando testando
-                        Testando testando testando
-                        Testando testando testando
-                        Testando testando testando
-                        Testando testando testando
-                        Testando testando testando
-                        Testando testando testando
-                        Testando testando testando
-                        Testando testando testando
-                        Testando testando testando
-                </span>
-                </div>
+        <div className='text-container'>
+            <div className='textbox'>
+                <img className='img' src={img} />
+                <span className='text'>
+                    Testando testando testando
+                    </span>
             </div>
-            <div className='code-container'>
-                <p className='text-questao'>Atividade 1</p>
-                <textarea type='textarea' placeholder='Codifique aqui'  rows='5' cols='5'  className='textarea-questao'/>
-                <input type='button'  value='enviar' className='btn-questao'/>
-            </div>
-        </>
+        </div>
+
 
     )
 }

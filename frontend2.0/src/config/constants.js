@@ -1,6 +1,7 @@
 export const SPRITE_SIZE = 40
 export const MOVE_PLAYER = 'MOVE_PLAYER'
 export const SET_TILES = 'ADD_TILES'
+export const SET_QUEST = 'ADD_QUEST'
 export const TOTAL_STEPS = 3
 
 export const WEST = 'WEST'

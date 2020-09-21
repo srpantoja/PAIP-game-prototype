@@ -4,11 +4,11 @@ import { connect } from 'react-redux'
 import Player from '../player'
 import Map from '../map'
 
-import { WEST, EAST, NORTH, SOUTH, MAP_HEIGHT, MAP_WIDTH } from '../../config/constants'
+import { WEST, EAST, NORTH, SOUTH, MAP_HEIGHT, MAP_WIDTH, PLAY } from '../../config/constants'
 import { moveToPosition } from './movement'
 import { setTiles } from '../map/environment'
 import { tiles } from '../../data/maps/1'
-import Challenges from '../../components/Challenges'
+
 
 function World(props) {
 
@@ -54,7 +54,7 @@ function World(props) {
         >
             <Map />
             <Player />
-            <Challenges />
+
         </div>
     )
 }

@@ -1,9 +1,4 @@
-.text-container {
-    margin: -34px 3%;
-    padding: 0px;
-    position: absolute;
-    border: 3px solid #ffffff;
-}
+
 
 .textbox {
     display: grid;
@@ -24,6 +19,17 @@
     grid-area: txt;
     left: 130px;
     top: 5px
+}
+
+.code-container {
+    top: 41px;
+    left: 1013px;    
+    padding: 0px;
+    position: absolute;
+    border: 4px solid #ffffff;
+    background-color: #ffffff;
+    width: 300px;
+    height: 589px;
 }
 
 .btn-questao:hover {
