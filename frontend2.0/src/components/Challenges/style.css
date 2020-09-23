@@ -1,16 +1,16 @@
+
 .text-container {
-    margin: -34px 3%;
-    padding: 0px;
-    position: absolute;
+    grid-area: description;
     border: 3px solid #ffffff;
+    background-color: #ffffff;
 }
 
 .textbox {
     display: grid;
-    grid-template-areas: 'img txt';
-    width: 958px;
+    grid-template-areas: 'img txt txt';
+    grid-gap:10px;
+    width: 968px;
     height: 100px;
-    background-color: #ffffff;
 }
 
 .img {
@@ -19,11 +19,9 @@
     height: 100px;
 }
 
-.text {
-    position: absolute;
+.text{
     grid-area: txt;
-    left: 130px;
-    top: 5px
+    font: 700 15px Poppins;
 }
 
 .btn-questao:hover {

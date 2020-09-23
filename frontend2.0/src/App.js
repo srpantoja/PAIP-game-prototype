@@ -7,8 +7,10 @@ import ChallengeCode from './components/ChallengeCode'
 
 function App() {
   return (
-    <div>
-      <Routes />
+    <div className='web-container'>
+      <div className='pages-container'>
+        <Routes />
+      </div>
       <Challenges />
       <ChallengeCode />
     </div>

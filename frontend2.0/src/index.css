@@ -1,18 +1,24 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: black;
 }
-.container {
-  display: flex;
-  align-items: 'center';
-  justify-content: 'center';
+
+.web-container {
+  display: grid;
+  grid-template-areas: 'game game code' 'game game code' 'description description code';
+  grid-gap: 5px;
+  margin: 30px 30px;
 }
 
+.pages-container{
+  grid-area: game;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
 ::placeholder {
   color: #48B8FA;
@@ -22,26 +28,26 @@ body {
 
 :-ms-input-placeholder {
   /* Internet Explorer 10-11 */
-  color:  #48B8FA;
+  color: #48B8FA;
 }
 
 ::-ms-input-placeholder {
   /* Microsoft Edge */
-  color:  #48B8FA;
+  color: #48B8FA;
 }
 
-[type=radio] { 
+[type=radio] {
   position: absolute;
   opacity: 0;
   width: 0;
   height: 0;
 }
 
-[type=radio] + img {
+[type=radio]+img {
   cursor: pointer;
 }
 
-[type=radio]:checked + img {
+[type=radio]:checked+img {
   border: 1px solid #FFF;
   transition: 0.3s;
   opacity: 0.8;

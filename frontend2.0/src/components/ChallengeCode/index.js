@@ -12,7 +12,8 @@ function Challenges(props) {
         "inputFile": "/home/vinicius/Projects/PokePython/backend/data/challenges/Matematica 1-input.txt",
         "outputFile": "/home/vinicius/Projects/PokePython/backend/data/challenges/Matematica 1-output.txt",
         "__v": 0
-    } // props.challenge;
+    }
+    // props.challenge;
     const studentId = "5f0f75264518ea38c9ec4e0b"// props.studentId;
     const [code, setCode] = useState("")
 
@@ -32,9 +33,8 @@ function Challenges(props) {
     }
 
     return (
-        <div className='code-container'>
+        <div className={`code-container`}>
             <p className='text-questao'>{challenge.name}</p>
-            <p>{challenge.description}</p>
             <textarea value={code} onChange={e => setCode(e.target.value)} type='textarea' placeholder='Codifique aqui' rows='5' cols='5' className='textarea-questao' />
             <input onClick={e => handleCodeSubmission()} type='button' value='enviar' className='btn-questao' />
         </div>
