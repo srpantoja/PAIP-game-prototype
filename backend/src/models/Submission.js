@@ -5,7 +5,8 @@ const SubmissionSchema = new Schema({
   studentId: Schema.Types.ObjectId,
   challengeId: Schema.Types.ObjectId,
   code: String,
-  result: Boolean
+  result: Boolean,
+  error: String
 });
 
 module.exports = mongoose.model('Submission', SubmissionSchema);
