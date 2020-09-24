@@ -26,6 +26,14 @@ body {
   /* Firefox */
 }
 
+.visi-true{
+  visibility: visible;
+}
+
+.visi-false{
+  visibility: visible;
+}
+
 :-ms-input-placeholder {
   /* Internet Explorer 10-11 */
   color: #48B8FA;

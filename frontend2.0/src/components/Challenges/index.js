@@ -1,10 +1,13 @@
 import React from 'react'
 import './style.css'
 import { connect } from 'react-redux'
+import { useState } from 'react';
+
 
 function Challenges(props) {
 
-    const quest =  [360,80]
+    const [quest, setQuest] = useState(false)
+
     const challenge = {
         "_id": "5f0f749f4518ea38c9ec4e09",
         "name": "Matematica 1",
@@ -16,10 +19,11 @@ function Challenges(props) {
     }
 
     const teste = () =>{
-        console.log(props.position)
+        console.log(props.id)
         if(props.position[0] === 80 && props.position[1] === 80)
             return <h1>Aperte Enter</h1>
     }
+    
     return (
         <div className='text-container'>
             <div className='textbox'>
@@ -37,7 +41,8 @@ function Challenges(props) {
 function mapStateToProps(state) {
     return {
         tiles: state.map.tiles,
-        position: state.player.position //importante, dispara a renderização do mapa
+        position: state.player.position,
+        id: state.player.id //importante, dispara a renderização do mapa
     }
 }
 

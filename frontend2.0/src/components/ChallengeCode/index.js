@@ -13,6 +13,8 @@ function Challenges(props) {
         "outputFile": "/home/vinicius/Projects/PokePython/backend/data/challenges/Matematica 1-output.txt",
         "__v": 0
     }
+
+    const [quest, setQuest] = useState(false)
     // props.challenge;
     const studentId = "5f0f75264518ea38c9ec4e0b"// props.studentId;
     const [code, setCode] = useState("")
@@ -32,8 +34,14 @@ function Challenges(props) {
         }
     }
 
+    const visibilityDiv = () => {
+        if(quest == true)
+            return 'visi-true'
+        else if(quest == false)
+            return 'visi-false'
+    }
     return (
-        <div className={`code-container`}>
+        <div className={`code-container ${visibilityDiv()}`}>
             <p className='text-questao'>{challenge.name}</p>
             <textarea value={code} onChange={e => setCode(e.target.value)} type='textarea' placeholder='Codifique aqui' rows='5' cols='5' className='textarea-questao' />
             <input onClick={e => handleCodeSubmission()} type='button' value='enviar' className='btn-questao' />

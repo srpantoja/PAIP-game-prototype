@@ -21,7 +21,7 @@ function MainPage() { //Tela de registro do usuário. Recebe as informações.
             // no caso de erros, o servidor envia de volta um json {status: "<razao do erro>"}
             const createdStudent = await api.post("/students", jsonData).catch(err => alert(err.response.data.status))
 
-            if (createdStudent.data) {
+            if (createdStudent) {
                 setStudentCreated(true)
             }
         } else {
