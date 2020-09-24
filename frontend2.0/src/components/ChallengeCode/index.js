@@ -1,6 +1,8 @@
 import React from 'react'
 import './style.css'
 import { useState } from 'react';
+import { connect } from 'react-redux'
+
 import api from '../../services/api'
 
 function Challenges(props) {
@@ -14,7 +16,6 @@ function Challenges(props) {
         "__v": 0
     }
 
-    const [quest, setQuest] = useState(false)
     // props.challenge;
     const studentId = "5f0f75264518ea38c9ec4e0b"// props.studentId;
     const [code, setCode] = useState("")
@@ -26,7 +27,7 @@ function Challenges(props) {
 
         const response = await api.post("/submit", jsonData)
         const submissionResult = response.data
-    
+        console.log(props.id)
         if (submissionResult.result) {
             alert("Sucesso!!!")
         } else {
@@ -34,21 +35,23 @@ function Challenges(props) {
         }
     }
 
-    const visibilityDiv = () => {
-        if(quest == true)
-            return 'visi-true'
-        else if(quest == false)
-            return 'visi-false'
-    }
     return (
-        <div className={`code-container ${visibilityDiv()}`}>
-            <p className='text-questao'>{challenge.name}</p>
+        <div className={`code-container`}>
+            <p className='text-questao'>CÓDIGO VENTURA ;</p>
+            <p>{props.id}</p>
             <textarea value={code} onChange={e => setCode(e.target.value)} type='textarea' placeholder='Codifique aqui' rows='5' cols='5' className='textarea-questao' />
             <input onClick={e => handleCodeSubmission()} type='button' value='enviar' className='btn-questao' />
         </div>
     )
 }
 
-const img = 'https://i.pinimg.com/736x/09/4c/64/094c64b1720cde9b40183ac4d038374f.jpg'
 
-export default Challenges
+function mapStateToProps(state) {
+    return {
+        tiles: state.map.tiles,
+        position: state.player.position,
+        id: state.player.id //importante, dispara a renderização do mapa
+    }
+}
+
+export default connect(mapStateToProps)(Challenges)

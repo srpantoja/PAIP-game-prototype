@@ -13,7 +13,7 @@ function MainPage() { //Tela de registro do usuário. Recebe as informações.
     const [studentCreated, setStudentCreated] = useState(false)
 
     async function handleRegister() {
-        if (login != "" && password != "" && gender != "") {
+        if (login !== "" && password !== "" && gender !== "") {
             const jsonData = {
                 curso, login, password, gender
             }
@@ -22,6 +22,7 @@ function MainPage() { //Tela de registro do usuário. Recebe as informações.
             const createdStudent = await api.post("/students", jsonData).catch(err => alert(err.response.data.status))
 
             if (createdStudent) {
+                console.log(createdStudent)
                 setStudentCreated(true)
             }
         } else {

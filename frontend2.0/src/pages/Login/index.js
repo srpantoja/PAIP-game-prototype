@@ -18,17 +18,17 @@ function MainPage(props) { //Tela inicial do jogo. Local de login.
         // em caso de erro a api retorna json no formato {status: "<razao do erro>"}
         const studentJson = await api.post("/students/login", { login, password })
             .catch(err => alert(err.response.data.status))
-        console.log(studentJson)
-        setRequestPromise(studentJson.data)
+            console.log("StudentJsonTeste: ")
+        console.log(studentJson.data.studentId)
+        setRequestPromise(studentJson.data.studentId)
         // sucesso
         if (requestPromise) {
+            const teste = props.loginValidation(LOGIN, requestPromise)
+            console.log(teste)
             setLoggedIn(true)
         }
-        
     }
     if (loggedIn) {
-        const teste = loginValidation(LOGIN, requestPromise)
-        console.log(teste)
         return <Redirect to="/game" />
     }
 
@@ -48,9 +48,9 @@ function MainPage(props) { //Tela inicial do jogo. Local de login.
                     placeholder='senha'
                     value={password}
                 />
-                <Link onClick={e => handleLogin()}>
+                <a onClick={e => handleLogin()}>
                     Entrar
-                </Link>
+                </a>
             </form>
         </MainGame >
     )
@@ -63,9 +63,10 @@ function mapDispatchToProps(dispatch) {
         loginValidation(type, studentId) {
             const action = loginValidation(type, studentId)
             dispatch(action)
+
         }
     }
 }
 
 
-export default connect(mapDispatchToProps)(MainPage)
+export default connect(null, mapDispatchToProps)(MainPage)

@@ -6,7 +6,7 @@ const router = require('./src/routers')
 app.use(express.json());
 
 // mongoose
-mongoose.connect('mongodb://localhost/my_database', {
+mongoose.connect('mongodb+srv://paipproject:5ioeUUtwl6gkuRzp@cluster0.rraaz.gcp.mongodb.net/app?retryWrites=true&w=majority', {
   useNewUrlParser: true,
   useUnifiedTopology: true
 });
