@@ -18,7 +18,7 @@ class StudentController {
             const passwordMatch = await bcrypt.compare(password, student.password)
 
             if (passwordMatch) {
-                res.json({"status": "Sucesso!"})
+                res.json({"status": "Sucesso!", "studentId": student._id, "name": student.login})
             } else {
                 res.status(401).json({"status": "Senha incorreta."})
             }
