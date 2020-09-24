@@ -4,40 +4,49 @@ import MainGame from '../../components/MainGame'
 import { Link, Redirect } from 'react-router-dom'
 import { useState } from 'react'
 import api from '../../services/api'
+import { connect } from 'react-redux'
+import { loginValidation } from './loginValidation'
+import { LOGIN } from '../../config/constants'
 
-function MainPage() { //Tela inicial do jogo. Local de login.
+
+function MainPage(props) { //Tela inicial do jogo. Local de login.
     const [login, setLogin] = useState("")
     const [password, setPassword] = useState("")
     const [loggedIn, setLoggedIn] = useState(false)
-
+    const [requestPromise, setRequestPromise] = useState()
     async function handleLogin() {
         // em caso de erro a api retorna json no formato {status: "<razao do erro>"}
-        const requestPromise = await api.post("/students/login", {login, password}).catch(err => alert(err.response.data.status))
-        
+        const studentJson = await api.post("/students/login", { login, password })
+            .catch(err => alert(err.response.data.status))
+        console.log(studentJson)
+        setRequestPromise(studentJson.data)
         // sucesso
         if (requestPromise) {
             setLoggedIn(true)
         }
+        
     }
-
     if (loggedIn) {
+        const teste = loginValidation(LOGIN, requestPromise)
+        console.log(teste)
         return <Redirect to="/game" />
     }
+
 
     return (
         <MainGame>
             <form className='button-container'>
-                <input 
+                <input
                     onChange={e => setLogin(e.target.value)}
-                    type="text" 
-                    value={login} 
-                    placeholder='usuario' 
+                    type="text"
+                    value={login}
+                    placeholder='usuario'
                 />
-                <input 
+                <input
                     onChange={e => setPassword(e.target.value)}
-                    type='password' 
+                    type='password'
                     placeholder='senha'
-                    value={password} 
+                    value={password}
                 />
                 <Link onClick={e => handleLogin()}>
                     Entrar
@@ -47,4 +56,16 @@ function MainPage() { //Tela inicial do jogo. Local de login.
     )
 }
 
-export default MainPage
+
+
+function mapDispatchToProps(dispatch) {
+    return {
+        loginValidation(type, studentId) {
+            const action = loginValidation(type, studentId)
+            dispatch(action)
+        }
+    }
+}
+
+
+export default connect(mapDispatchToProps)(MainPage)

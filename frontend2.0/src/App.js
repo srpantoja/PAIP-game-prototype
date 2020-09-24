@@ -11,8 +11,8 @@ function App() {
       <div className='pages-container'>
         <Routes />
       </div>
-      <Challenges />
-      <ChallengeCode />
+        <Challenges />
+        <ChallengeCode />
     </div>
   );
 }
