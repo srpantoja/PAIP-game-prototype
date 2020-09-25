@@ -3,6 +3,7 @@ export const MOVE_PLAYER = 'MOVE_PLAYER'
 export const LOGIN = 'LOGIN'
 export const SET_TILES = 'ADD_TILES'
 export const SET_QUEST = 'ADD_QUEST'
+export const QUEST = 'QUEST'
 export const TOTAL_STEPS = 3
 
 export const WEST = 'WEST'

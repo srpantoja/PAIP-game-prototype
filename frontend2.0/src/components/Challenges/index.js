@@ -2,6 +2,7 @@ import React from 'react'
 import './style.css'
 import { connect } from 'react-redux'
 import { useState } from 'react';
+import { dispatchQuest } from './dispatchQuest';
 
 
 function Challenges(props) {
@@ -48,4 +49,14 @@ function mapStateToProps(state) {
 
 const img = 'https://i.pinimg.com/736x/09/4c/64/094c64b1720cde9b40183ac4d038374f.jpg'
 
-export default connect(mapStateToProps)(Challenges)
+function mapDispatchToProps(dispatch) {
+    return {
+        loginValidation(type, quest) {
+            const action = dispatchQuest(type, quest)
+            dispatch(action)
+
+        }
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Challenges)
