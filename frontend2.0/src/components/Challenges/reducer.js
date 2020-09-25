@@ -1,13 +1,15 @@
 import { QUEST } from '../../config/constants'
 const initialState = {
     quests: {
-        "_id": "teste",
-        "name": "teste",
-        "area": "teste",
-        "description": "teste",
-        "inputFile": "teste",
-        "outputFile": "teste",
-        "__v": 0
+        id: "teste",
+        name: "teste",
+        area: "teste",
+        description: "teste",
+        inputFile: "teste",
+        outputFile: "teste",
+        __v: 0,
+        posX: 0,
+        posY: 0
     }
 
 }

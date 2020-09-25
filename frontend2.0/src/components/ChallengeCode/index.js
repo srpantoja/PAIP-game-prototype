@@ -12,10 +12,13 @@ function Challenges(props) {
     const [code, setCode] = useState("")
 
     async function handleCodeSubmission() {
+        console.log(props.quest._id)
+
         const jsonData = {
-            challengeId: challenge.challengeId, studentId, code
+            challengeId: challenge._id, studentId, code
         }
 
+        console.log(jsonData)
         const response = await api.post("/submit", jsonData)
         const submissionResult = response.data
         if (submissionResult.result) {
