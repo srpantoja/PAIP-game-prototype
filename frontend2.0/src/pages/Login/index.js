@@ -61,9 +61,8 @@ function MainPage(props) { //Tela inicial do jogo. Local de login.
 function mapDispatchToProps(dispatch) {
     return {
         loginValidation(type, studentId) {
-            const action = loginValidation(type, studentId)
+            const action = loginValidation(type, studentId, true)
             dispatch(action)
-
         }
     }
 }

@@ -1,6 +1,15 @@
 import { QUEST } from '../../config/constants'
 const initialState = {
-    quests: {}
+    quests: {
+        "_id": "teste",
+        "name": "teste",
+        "area": "teste",
+        "description": "teste",
+        "inputFile": "teste",
+        "outputFile": "teste",
+        "__v": 0
+    }
+
 }
 
 const challengeReducer = (state = initialState, action) => {
@@ -10,6 +19,8 @@ const challengeReducer = (state = initialState, action) => {
                 ...state,
                 quest: action.payload.quest
             }
+        default:
+            return state
     }
 }
 

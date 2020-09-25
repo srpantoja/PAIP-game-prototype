@@ -7,7 +7,7 @@ const rootReducer = combineReducers(
     {
         player: playerReducer,
         map: mapReducer,
-        quests: questReducer
+        quest: questReducer
     }
 )
 

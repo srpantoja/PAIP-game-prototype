@@ -4,7 +4,8 @@ const initialState = {
     id: 0,
     position: [80, 80],
     facing: SOUTH,
-    step: 1 // 1 a 3 
+    step: 1, // 1 a 3 
+    jogando: false
 }
 
 const playerReducer = (state = initialState, action) => {
@@ -19,7 +20,8 @@ const playerReducer = (state = initialState, action) => {
         case LOGIN:
             return {
                 ...state,
-                id: action.payload.id
+                id: action.payload.id,
+                jogando: action.payload.jogando
             }
         default:
             return state

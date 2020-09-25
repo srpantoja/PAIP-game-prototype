@@ -1,10 +1,11 @@
 
-export function loginValidation(login, studentId) {
+export function loginValidation(login, studentId, jogando) {
     console.log(login, studentId)
     return { // Altera login
         type: login,
         payload: {
-            id: studentId
+            id: studentId,
+            jogando: jogando
         }
     }
 
