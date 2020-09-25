@@ -12,13 +12,15 @@ function MainPage() {
     const [input, setInput] = useState("")
     const [output, setOutput] = useState("")
     const [success, setSuccess] = useState(false)
+    const [posX, setPosX] = useState(0)
+    const [posY, setPosY] = useState(0)
 
     async function handleQuestionRegister(e) {
         e.preventDefault()
 
         if (name != "" && description != "" && input != "" && output != "") {
             const jsonData = {
-                name, area, description, input, output
+                name, area, description, input, output, posX, posY
             }
 
             const createdQuestion = await api.post("/challenges", jsonData)
@@ -51,6 +53,9 @@ function MainPage() {
                     <textarea value={description} onChange={e => setDescription(e.target.value)} className='textarea-cad' type='textarea' placeholder='Descrição'  rows='5' cols='5'/>
                     <textarea value={input} onChange={e => setInput(e.target.value)} className='textarea-cad' type='textarea' placeholder='Entrada' rows='5' cols='5' />
                     <textarea value={output} onChange={e => setOutput(e.target.value)} className='textarea-cad' type='textarea' placeholder='Saída' rows='5' cols='5'/>
+                    <input type="number" value={posX} onChange={e => setPosX(e.target.value)}></input>
+                    <input type="number" value={posY} onChange={e => setPosY(e.target.value)}></input>
+
                     <input onClick={handleQuestionRegister} type='submit' value='Cadastrar' className='cadquest'/>
                 </div>
             </form>

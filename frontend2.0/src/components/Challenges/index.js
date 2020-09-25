@@ -3,7 +3,7 @@ import './style.css'
 import { connect } from 'react-redux'
 import { useState } from 'react';
 import { dispatchQuest } from './dispatchQuest';
-
+import api from '../../services/api'
 
 function Challenges(props) {
 
@@ -17,6 +17,14 @@ function Challenges(props) {
         "inputFile": "/home/vinicius/Projects/PokePython/backend/data/challenges/Matematica 1-input.txt",
         "outputFile": "/home/vinicius/Projects/PokePython/backend/data/challenges/Matematica 1-output.txt",
         "__v": 0
+    }
+
+    async function fetchChallenges() {
+        const response = await api.get("/challenges")
+        
+        // backend returns an list of challenges 
+        const challenges = response.data
+        console.log(challenges)
     }
 
     const teste = () =>{
