@@ -1,9 +1,8 @@
-export function dispatchQuest(quest, questionsList) {
-    console.log(quest, questionsList)
+export function dispatchQuest(quest, challenger) {
     return { // Altera quesListt
         type: quest,
         payload: {
-            id: questionsList
+            challange: challenger
         }
     }
 

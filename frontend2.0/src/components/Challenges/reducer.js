@@ -1,16 +1,14 @@
 import { QUEST } from '../../config/constants'
 const initialState = {
-    quests: {
-        id: "teste",
-        name: "teste",
-        area: "teste",
-        description: "teste",
-        inputFile: "teste",
-        outputFile: "teste",
-        __v: 0,
-        posX: 0,
-        posY: 0
-    }
+    id: "cachorro 123",
+    name: null,
+    area: null,
+    description: null,
+    inputFile: null,
+    outputFile: null,
+    __v: null,
+    posX: null,
+    posY: null
 
 }
 
@@ -19,10 +17,19 @@ const challengeReducer = (state = initialState, action) => {
         case QUEST:
             return {
                 ...state,
-                quest: action.payload.quest
+                id: action.payload.challange._id,
+                name: action.payload.challange.name,
+                area: action.payload.challange.area,
+                description: action.payload.challange.description,
+                inputFile: action.payload.challange.inputFile,
+                outputFile: action.payload.challange.outputFile,
+                __v: action.payload.challange.__v,
+                posX: action.payload.challange.posX,
+                posY: action.payload.challange.posY
             }
-        default:
+        case 'default':
             return state
+        default: return state
     }
 }
 

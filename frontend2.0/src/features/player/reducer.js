@@ -2,7 +2,7 @@ import { MOVE_PLAYER, LOGIN, SOUTH } from '../../config/constants'
 
 const initialState = {
     id: 0,
-    position: [80, 80],
+    position: [40, 40],
     facing: SOUTH,
     step: 1, // 1 a 3 
     jogando: false

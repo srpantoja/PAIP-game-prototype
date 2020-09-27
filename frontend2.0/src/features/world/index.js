@@ -5,7 +5,7 @@ import Player from '../player'
 import Map from '../map'
 
 import { WEST, EAST, NORTH, SOUTH, MAP_HEIGHT, MAP_WIDTH, PLAY } from '../../config/constants'
-import { moveToPosition } from './movement'
+import { moveToPosition } from './events'
 import { setTiles } from '../map/environment'
 import { tiles } from '../../data/maps/1'
 
@@ -13,32 +13,31 @@ import { tiles } from '../../data/maps/1'
 function World(props) {
 
     function handleKeyDown(e) {
-        if (e.keyCode >= 37 && e.keyCode <= 40)
-            switch (e.keyCode) {
-                case 37:
-                    return props.moveToPosition(WEST)
-                case 38:
-                    return props.moveToPosition(NORTH)
-                case 39:
-                    return props.moveToPosition(EAST)
-                case 40:
-                    return props.moveToPosition(SOUTH)
-                default: console.log('INVALID POSITION')
-            }
+        switch (e.keyCode) {
+            case 37:
+                return props.moveToPosition(WEST)
+            case 38:
+                return props.moveToPosition(NORTH)
+            case 39:
+                return props.moveToPosition(EAST)
+            case 40:
+                return props.moveToPosition(SOUTH)
+            default: return
+        }
     }
 
     //previne carregar o mapa toda vez que World é renderizado
-    if(props.tiles && props.tiles.length===0){
+    if (props.tiles && props.tiles.length === 0) {
         props.setTiles(tiles)
     }
-        
+
     //console.log('render world')
     return (
         <div
             style={{
                 position: 'relative',
                 width: `${MAP_WIDTH}px`,
-                height:`${MAP_HEIGHT}px`,
+                height: `${MAP_HEIGHT}px`,
                 outline: '0px',
                 borderStyle: 'solid',
                 borderColor: 'white'
@@ -72,8 +71,8 @@ function mapDispatchToProps(dispatch) {
             dispatch(action)
         },
         setTiles(tiles) {
-           const action = setTiles(tiles)
-           dispatch(action)
+            const action = setTiles(tiles)
+            dispatch(action)
         }
     }
 }

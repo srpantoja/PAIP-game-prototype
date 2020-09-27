@@ -23,8 +23,7 @@ function MainPage(props) { //Tela inicial do jogo. Local de login.
         setRequestPromise(studentJson.data.studentId)
         // sucesso
         if (requestPromise) {
-            const teste = props.loginValidation(LOGIN, requestPromise)
-            console.log(teste)
+            localStorage.setItem(LOGIN, requestPromise);
             setLoggedIn(true)
         }
     }
