@@ -20,6 +20,9 @@ function Challenges(props) {
         posY: null
     
     }
+
+    const [currentQuest, setCurrentQuest] = useState(initialState)
+
     const [questList, setQuestList] = useState([])
     const login = localStorage.getItem(LOGIN)
     useEffect(() => {
@@ -32,9 +35,12 @@ function Challenges(props) {
     useEffect(() => {
         questList.map((item, index) => {
             if (props.position[0] === item.posX && props.position[1] === item.posY) {
+                console.log("aqui")
                 console.log(item)
+                setCurrentQuest(item)
                 return props.dispatchQuest(QUEST, item)
             }else{
+                setCurrentQuest(initialState)
                 props.dispatchQuest(QUEST, initialState)
             }
             
@@ -55,9 +61,9 @@ function Challenges(props) {
                 </thead>
                 <tbody>
                     <tr>
-                        <td>Jim</td>
-                        <td>00001</td>
-                        <td>Blue</td>
+                        <td>{currentQuest.name}</td>
+                        <td>{currentQuest.area}</td>
+                        <td>{currentQuest.description}</td>
                     </tr>
                 </tbody>
             </table>
