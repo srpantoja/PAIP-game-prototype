@@ -13,6 +13,9 @@ class ChallengeController {
     }
 
     async create(req, res) {
+        /*Criação de questões - nome, area, coordenadas, descrição, 
+        texto de entrada e saída.*/
+
         const { name, area, posX, posY, description, input, output } = req.body
 
         const inputFile = await fileHandler.create(name + "-input.txt", input)

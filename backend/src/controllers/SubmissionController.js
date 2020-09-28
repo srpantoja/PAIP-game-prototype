@@ -1,3 +1,4 @@
+//Constantes instanciadas
 const Submit = require("../models/Submission")
 const Challenge = require('../models/Challenge')
 const submissionCodeHandler = require('../utils/SubmissionCodeHandler')
@@ -33,7 +34,7 @@ class SubmissionController {
         }
 
         async function handleSubmissionSuccess(success) {
-            // check challenge output
+            // Verificação da resposta do desafio 
             const result = await validationHandler(success, challenge.outputFile)
             
             let createdSubmission;

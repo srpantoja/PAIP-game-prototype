@@ -13,10 +13,12 @@ class StudentController {
 
         const isLoginUsed = await Student.exists({ login })
 
-        if (isLoginUsed) {
+        //Autenticação de login
+        if (isLoginUsed) { 
             const student = await Student.findOne({ login })
             const passwordMatch = await bcrypt.compare(password, student.password)
 
+           //Autenticação de senha 
             if (passwordMatch) {
                 res.json({"status": "Sucesso!", "studentId": student._id, "name": student.login})
             } else {
@@ -26,7 +28,7 @@ class StudentController {
             res.status(400).json({status: "Login inexistente."})
         }
     }
-
+    //Cadastro
     async create(req, res) {
         const { gender, login, password, curso } = req.body
         
