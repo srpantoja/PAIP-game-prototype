@@ -23,7 +23,7 @@ async function invokeSubmission(filePath, inputsFile, err, success) {
     
     python.on('close', (code) => {
       if (code == 0) {
-        // 0 means "success", so send stdout
+        // 0 significa sucesso, então envie stdout
         success(stdout)
       } else {
         err(stderr)
