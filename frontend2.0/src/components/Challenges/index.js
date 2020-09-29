@@ -55,8 +55,8 @@ function Challenges(props) {
                         <th>Nome</th>
                         <th>Area</th>
                         <th>Descrição</th>
-                        <th>Entrada</th>
-                        <th>Saída</th>
+                        {/* <th>Entrada</th>
+                        <th>Saída</th> */}
                     </tr>
                 </thead>
                 <tbody>
@@ -64,6 +64,8 @@ function Challenges(props) {
                         <td>{currentQuest.name}</td>
                         <td>{currentQuest.area}</td>
                         <td>{currentQuest.description}</td>
+                        {/* <td>{currentQuest.input}</td>
+                        <td>{currentQuest.output}</td> */}
                     </tr>
                 </tbody>
             </table>
