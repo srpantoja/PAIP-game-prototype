@@ -82,14 +82,14 @@ function Map(props) {
     )   
 }
 
-function mapStateToProps(state) {
+function mapStateToProps(state) { //mapeia o estado geral para os props deste componente
     return {
         tiles: state.map.tiles,
         position: state.player.position //importante, dispara a renderização do mapa
     }
 }
 
-function mapDispatchToProps(dispatch) {
+function mapDispatchToProps(dispatch) { //despacha a mudança do estado geral para o store
     return {
         setTiles(tiles) {
             const action = setTiles(tiles)
@@ -99,4 +99,4 @@ function mapDispatchToProps(dispatch) {
 }
 
 
-export default connect(mapStateToProps, mapDispatchToProps)(Map)
+export default connect(mapStateToProps, mapDispatchToProps)(Map) //conecta para o componente ter acesso às funções
