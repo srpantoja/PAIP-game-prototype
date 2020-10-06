@@ -1,5 +1,6 @@
 import React from 'react'
-import walkSprite from '../../data/tiles/Characters/hero.png'
+//import walkSprite from '../../data/tiles/Characters/hero.png'
+import walkSprite from '../../data/tiles/Characters/su1 Student male 05.png'
 import { connect } from 'react-redux'
 
 import { SOUTH, NORTH, WEST, EAST, SPRITE_SIZE } from '../../config/constants'
@@ -12,7 +13,22 @@ function Player(props) {
     }
 
     function getFacingPixel(facing) { // direciona para onde o personagem olha
+        //32x32
         switch (facing) {
+            case SOUTH: // direciona para Baixo
+                return `${SPRITE_SIZE*0}px`
+            case NORTH: // direciona para Cima
+                return `-${SPRITE_SIZE*3}px`
+            case WEST: // direciona para Esquerda
+                return `-${SPRITE_SIZE}px`
+            case EAST: // direciona para Direita
+                return `-${SPRITE_SIZE*2}px`
+            default:
+                console.log('INVALID FACING')
+        }
+
+        //40x40
+        /*switch (facing) {
             case SOUTH: // direciona para Baixo
                 return `${SPRITE_SIZE*0}px`
             case NORTH: // direciona para Cima
@@ -23,7 +39,7 @@ function Player(props) {
                 return `-${SPRITE_SIZE*3}px`
             default:
                 console.log('INVALID FACING')
-        }
+        }*/
     }
 
     //console.log('render player')

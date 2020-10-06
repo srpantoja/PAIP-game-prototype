@@ -19,7 +19,8 @@
 }
 
 .map{
-    background-image: url('../../data/maps/1/mapa1.png');
+    /**background-image: url('../../data/maps/1/mapa1.png');*/
+    background-image: url('../../data/maps/1/mapa960x640(32px).png');
     width: 800px;
     height: 400px;
 }

@@ -1,8 +1,8 @@
-import { MOVE_PLAYER, LOGIN, SOUTH } from '../../config/constants'
+import { MOVE_PLAYER, LOGIN, SOUTH, SPRITE_SIZE } from '../../config/constants'
 
 const initialState = {
     id: 0,
-    position: [40, 40],
+    position: [SPRITE_SIZE, SPRITE_SIZE],
     facing: SOUTH,
     step: 1, // 1 a 3 
     jogando: false
