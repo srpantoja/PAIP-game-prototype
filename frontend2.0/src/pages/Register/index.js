@@ -59,6 +59,7 @@ function MainPage() { //Tela de registro do usuário. Recebe as informações.
                     <button type='submit'>
                         Registrar
                     </button>
+                    <button onClick={e => history.push('/')} > Voltar </button>
                 </div>
             </form>
         </MainGame >
