@@ -37,7 +37,7 @@ function Challenges(props) {
     }
     // console.log('testando challengerCode: ')
     return (
-        <form onSubmit={handleCodeSubmission}>
+        <form onSubmit={handleCodeSubmission} id='form-code'>
             <div className='code-container'>
                 <p className='text-questao'>CÓDIGO VENTURA ;</p>
                 <p>{props.challengeId.name}</p>

@@ -32,7 +32,7 @@ function MainPage() { //Tela de registro do usuário. Recebe as informações.
     }
     return (
         <MainGame>
-            <form onSubmit={handleRegister}>
+            <form onSubmit={handleRegister} id='register-form'>
                 <h3 className='title select' >Criar Conta</h3>
                 <div className='button-container'>
                     <input type="text" placeholder='usuario' value={login} onChange={e => setLogin(e.target.value)} />
@@ -58,9 +58,6 @@ function MainPage() { //Tela de registro do usuário. Recebe as informações.
                 <div className='button-container register' style={{ marginTop: '-25px' }}>
                     <button type='submit'>
                         Registrar
-                    </button>
-                    <button onClick={e => history.push('/')}>
-                        Voltar
                     </button>
                 </div>
             </form>
