@@ -1,6 +1,11 @@
-
-.code-container {
+form{
+    margin-top: auto;
     grid-area: code;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.code-container {
     border: 4px solid #ffffff;
     background-color: #ffffff;
     width: 300px;

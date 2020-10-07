@@ -21,7 +21,7 @@
     margin-top: 50px;
 }
 
-.button-container a {
+.button-container button {
     width: 120px;
     height: 40px;
     border: 2px solid #ffffff;
@@ -37,11 +37,11 @@
     font: 700 18px Poppins;
 }
 
-.button-container input, a {
+.button-container input, button {
     margin-right: 20px;
 }
 
-.button-container a:hover {
+.button-container button:hover {
     border: 2px solid #ffffff;
     border-radius: 10px;
     background-color: #48B8FA;

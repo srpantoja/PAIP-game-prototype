@@ -9,15 +9,16 @@ body {
 .web-container {
   display: grid;
   grid-template-areas: 'game game code' 'game game code' 'description description code';
-  grid-gap: 5px;
-  margin: 30px 30px;
+  grid-gap: 10px;
+  margin: 10px;
 }
 
 .pages-container{
   grid-area: game;
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
+  zoom: 70%;
 }
 
 ::placeholder {

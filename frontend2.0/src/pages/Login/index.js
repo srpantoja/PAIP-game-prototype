@@ -1,40 +1,35 @@
 import React from 'react'
 import './style.css'
 import MainGame from '../../components/MainGame'
-import { Link, Redirect } from 'react-router-dom'
+import { useHistory } from 'react-router-dom'
 import { useState } from 'react'
 import api from '../../services/api'
 import { connect } from 'react-redux'
 import { loginValidation } from './loginValidation'
-import { LOGIN } from '../../config/constants'
 
 
 function MainPage(props) { //Tela inicial do jogo. Local de login.
     const [login, setLogin] = useState("")
     const [password, setPassword] = useState("")
-    const [loggedIn, setLoggedIn] = useState(false)
+    const history = useHistory();
+
     const [requestPromise, setRequestPromise] = useState()
-    async function handleLogin() {
-        // em caso de erro a api retorna json no formato {status: "<razao do erro>"}
-        const studentJson = await api.post("/students/login", { login, password })
-            .catch(err => alert(err.response.data.status))
-            console.log("StudentJsonTeste: ")
-        console.log(studentJson.data.studentId)
-        setRequestPromise(studentJson.data.studentId)
-        // sucesso
-        if (requestPromise) {
-            localStorage.setItem(LOGIN, requestPromise);
-            setLoggedIn(true)
+    async function handleLogin(e) {
+        e.preventDefault();
+        try{
+            const studentJson = await api.post("/students/login", { login, password })
+            setRequestPromise(studentJson.data.studentId)
+            history.push('/game')
+            localStorage.setItem('LOGIN', studentJson.data.studentId)
+            alert('Login Efetuado com sucesso, espere o jogo carregar')
+        }catch(err){
+            alert('falha no login, tente novamente');
         }
     }
-    if (loggedIn) {
-        return <Redirect to="/game" />
-    }
-
 
     return (
         <MainGame>
-            <form className='button-container'>
+            <form className='button-container' onSubmit={handleLogin}>
                 <input
                     onChange={e => setLogin(e.target.value)}
                     type="text"
@@ -47,9 +42,10 @@ function MainPage(props) { //Tela inicial do jogo. Local de login.
                     placeholder='senha'
                     value={password}
                 />
-                <a onClick={e => handleLogin()}>
+                <button type='submit'>
                     Entrar
-                </a>
+                </button>
+                <button onClick={e=>history.push('/')} > Voltar </button>
             </form>
         </MainGame >
     )
@@ -60,7 +56,7 @@ function MainPage(props) { //Tela inicial do jogo. Local de login.
 function mapDispatchToProps(dispatch) {
     return {
         loginValidation(type, studentId) {
-            const action = loginValidation(type, studentId, true)
+            const action = loginValidation(type, studentId)
             dispatch(action)
         }
     }

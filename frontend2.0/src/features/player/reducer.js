@@ -20,8 +20,7 @@ const playerReducer = (state = initialState, action) => {
         case LOGIN:
             return {
                 ...state,
-                id: action.payload.id,
-                jogando: action.payload.jogando
+                id: action.payload.id
             }
         default:
             return state
