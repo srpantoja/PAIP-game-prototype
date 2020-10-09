@@ -7,8 +7,8 @@ const ChallengeSchema = new Schema({
   posX: Number,
   posY: Number,
   description: String,
-  inputFile: String,
-  outputFile: String
+  input: String,
+  output: String
 });
 
 module.exports = mongoose.model('Challenge', ChallengeSchema);

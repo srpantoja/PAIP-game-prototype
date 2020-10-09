@@ -1,13 +1,11 @@
 const { spawn } = require('child_process');
 const fs = require('fs').promises
 
-async function invokeSubmission(filePath, inputsFile, err, success) {
+async function invokeSubmission(filePath, inputString, err, success) {
     const python = spawn('python3', [filePath]);
 
-    const inputBuffer = await fs.readFile(inputsFile, {
-      encoding: "utf8"
-    })
-  
+    const inputBuffer = inputString
+
     let stdout = ""
     let stderr = ""
     python.stdin.write(inputBuffer)

@@ -35,21 +35,19 @@ class SubmissionController {
 
         async function handleSubmissionSuccess(success) {
             // Verificação da resposta do desafio 
-            const result = await validationHandler(success, challenge.outputFile)
+            const result = await validationHandler(success, challenge.output)
             
             let createdSubmission;
             if (result) {
                 createdSubmission = await Submit.create({
                     studentId,
                     challengeId,
-                    code: filePath,
                     result
                 })
             } else {
                 createdSubmission = await Submit.create({
                     studentId,
                     challengeId,
-                    code: filePath,
                     result,
                     error: "Diferença na saída exibida pelo programa com a saída esperada."
                 })    
@@ -58,7 +56,7 @@ class SubmissionController {
             res.json(createdSubmission)
         }
 
-        submissionCodeHandler(filePath, challenge.inputFile,
+        submissionCodeHandler(filePath, challenge.input,
             handleSubmissionError, handleSubmissionSuccess)
     }
 }

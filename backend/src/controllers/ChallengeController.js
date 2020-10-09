@@ -18,11 +18,8 @@ class ChallengeController {
 
         const { name, area, posX, posY, description, input, output } = req.body
 
-        const inputFile = await fileHandler.create(name + "-input.txt", input)
-        const outputFile = await fileHandler.create(name + "-output.txt", output)
-        
         const createdChallenge = 
-            await Challenge.create({ name, area, description, posX, posY, inputFile, outputFile })
+            await Challenge.create({ name, area, description, posX, posY, input, output })
 
         res.json(createdChallenge)
     }
