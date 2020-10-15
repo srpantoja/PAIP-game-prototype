@@ -33,18 +33,17 @@ function Challenges(props) {
     }, [login])
 
     useEffect(() => {
-        questList.map((item, index) => {
-            if (props.position[0] === item.posX && props.position[1] === item.posY) {
-                console.log("aqui")
-                console.log(item)
-                setCurrentQuest(item)
-                return props.dispatchQuest(QUEST, item)
-            } else {
-                setCurrentQuest(initialState)
-                props.dispatchQuest(QUEST, initialState)
-            }
+        // existe alguma quest na posicao atual?
+        const currentQuest = questList.find(item => props.position[0] === item.posX && props.position[1] === item.posY)
 
-        })
+        // se sim, seta a quest.
+        if (currentQuest) {
+            setCurrentQuest(currentQuest)
+            props.dispatchQuest(QUEST, currentQuest)
+        } else {
+            setCurrentQuest(initialState)
+            props.dispatchQuest(QUEST, initialState)
+        }
     }, [props.position[0], props.position[1]])
 
     const renderChallenge = () => {
