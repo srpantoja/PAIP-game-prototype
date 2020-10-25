@@ -51,8 +51,7 @@ function Challenges(props) {
             <table>
                 <thead>
                     <tr>
-                        <th>Nome</th>
-                        <th>Area</th>
+                        <th>Nome e Area</th>
                         <th>Descrição</th>
                         <th>Entrada</th>
                         <th>Saída</th>

@@ -3,7 +3,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 20px;
+    margin-top: 90px;
 }
 
 .button-container input {
@@ -97,7 +97,7 @@
 }
 
 #register-form{
-    margin-top:-60px;
+    margin-top:-20px;
 }
 
 .register a{

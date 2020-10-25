@@ -21,7 +21,7 @@
 
 .text{
     grid-area: txt;
-    font: 700 15px Poppins;
+    font: 700 12px Arial;
 }
 
 .btn-questao:hover {

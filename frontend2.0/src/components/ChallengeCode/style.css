@@ -29,13 +29,12 @@
 }
 
 .btn-questao {
-    width: 120px;
+    width: 90%;
     height: 40px;
     transition: 0.3s;
     font: 700 18px Poppins;
     display: flex;
     align-items: center;
-    justify-content: center;
     margin: 10px auto;
     text-decoration: none;
     border: 2px solid #ffffff;
