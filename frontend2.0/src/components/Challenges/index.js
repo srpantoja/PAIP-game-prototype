@@ -46,6 +46,40 @@ function Challenges(props) {
         }
     }, [props.position[0], props.position[1]])
 
+    const renderQuest = () => {
+        return (
+            <span className='text'>
+                <div className='gridName box'>
+                    <h3>Nome e Area</h3>
+                    <span className='info'>
+                        {currentQuest.name}
+                    </span>
+                    <br></br>
+                    <span className='info'>
+                        {currentQuest.area}
+                    </span>
+                </div>
+                <div className='gridDesc box'>
+                    <h3>Descrição</h3>
+                    <span className='info'>
+                        {currentQuest.description}
+                    </span>
+                </div>
+                <div className='gridEntrada box'>
+                    <h3>Entrada</h3>
+                    <span className='info'>
+                        {currentQuest.input}
+                    </span>
+                </div>
+                <div className='gridSaida box'>
+                    <h3>Saída</h3>
+                    <span className='info'>
+                        {currentQuest.output}
+                    </span>
+                </div>
+            </span>
+        )
+    }
     const renderChallenge = () => {
         return (
             <table>
@@ -74,9 +108,7 @@ function Challenges(props) {
     return (
         <div className='text-container'>
             <div className='textbox'>
-                <span className='text'>
-                    {renderChallenge()}
-                </span>
+                {renderQuest()}
             </div>
         </div>
 

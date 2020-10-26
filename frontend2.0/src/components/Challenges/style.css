@@ -1,27 +1,58 @@
 
 .text-container {
     grid-area: description;
-    border: 3px solid #ffffff;
-    background-color: #ffffff;
+    height: 130px;
 }
 
 .textbox {
-    display: grid;
-    grid-template-areas: 'img txt txt';
-    grid-gap:10px;
-    width: 968px;
-    height: 100px;
+    display: flex;
+    justify-content: center;
+    height: 150px;
 }
 
-.img {
-    grid-area: img;
+.box{
+    border: #ffffff;
+    background-color: #ffffff;
+    border-radius: 5px;
+} 
+
+.gridName{
+    grid-area: gridName;
     width: 100px;
-    height: 100px;
+    height: 110px;
+    padding: 10px;
 }
 
+
+.gridDesc{
+    grid-area: gridDesc;
+    width: 580px;
+    height: 110px;
+    padding: 10px;
+}
+
+.gridEntrada{
+    grid-area: gridEntrada;
+    width: 80px;
+    height: 110px;
+    padding: 10px;
+}
+.gridSaida{
+    grid-area: gridSaida;
+    width: 120px;
+    height: 110px;
+    padding: 10px;
+}
+.info{
+    display: inline;
+}
 .text{
-    grid-area: txt;
-    font: 700 12px Arial;
+    margin-left: 35px;
+    display: grid;
+    grid-template-areas: 'gridName gridDesc gridEntrada gridSaida' 'gridName gridDesc gridEntrada gridSaida';
+    grid-gap:10px;
+    font: 700 12px Arial ;
+    color:#48B8FA;
 }
 
 .btn-questao:hover {
@@ -52,15 +83,4 @@
     justify-content: center;
     color: #48B8FA;
     font: 700 25px Poppins;
-}
-
-.textarea-questao {
-    background-color: #F8F8FC;
-    border-radius: 10px;
-    border: 1px solid #F8F8FC;
-    outline: 0;
-    min-width: 294px;
-    min-height: 409px;
-    max-width: 294px;
-    max-height: 409px;
 }
