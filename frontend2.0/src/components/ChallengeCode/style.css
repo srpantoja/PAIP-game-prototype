@@ -59,3 +59,7 @@
     max-width: 294px;
     max-height: 389px;
 }
+
+.textarea-questao::placeholder {
+    color: black;
+}

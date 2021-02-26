@@ -33,11 +33,14 @@ function Challenges(props) {
         }
     }
     // console.log('testando challengerCode: ')
+
+    const placeholder = "Ao ler a entrada, use sempre input(), sem nada dentro dos parênteses. Exemplo: int(input()) para ler um número.\nSeu programa não deve conter acentos. Caso contrário, o sistema irá apontar erro em sua solução.\nAs saídas do seu programa devem seguir o padrão exibido em 'Saída'\n\nBoa sorte!"
+
     return (
         <form onSubmit={handleCodeSubmission} id='form-code'>
             <div className='code-container'>
                 <p className='text-questao'>CÓDIGO VENTURA :</p>
-                <textarea value={code} onChange={e => setCode(e.target.value)} type='textarea' placeholder='Codifique aqui' rows='5' cols='5' className='textarea-questao' />
+                <textarea value={code} onChange={e => setCode(e.target.value)} type='textarea' placeholder={placeholder} rows='5' cols='5' className='textarea-questao' />
                 <input type='button' onClick={e => setCode("")} className='btn-questao' value='Limpar' />
                 <button type='submit' value='enviar' className='btn-questao' > Enviar </button>
             </div>
