@@ -8,8 +8,5 @@
     "test": "\"echo \\\"error: no test especified\\\" && exit 1\""
   },
   "author": "paip",
-  "license": "ISC",
-  "dependencies": {
-    "express": "^4.17.1"
-  }
+  "license": "ISC"
 }
