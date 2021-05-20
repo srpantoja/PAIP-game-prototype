@@ -1,0 +1,12 @@
+{
+  "name": "paip_api",
+  "version": "1.0.0",
+  "description": "null",
+  "main": "main.js",
+  "scripts": {
+    "start": "node main.js",
+    "test": "\"echo \\\"error: no test especified\\\" && exit 1\""
+  },
+  "author": "paip",
+  "license": "ISC"
+}
