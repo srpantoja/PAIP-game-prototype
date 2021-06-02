@@ -1,5 +1,5 @@
 # PAIP GAME PROTOTYPE
-Link do projeto em deploy: <paip-webapp.herokuapp.com>.
+Link do projeto em deploy: <https://paip-webapp.herokuapp.com>.
 
 Leve em consideração que você está na pasta raiz para iniciar os seguintes passos `./lastversion`.
 # COMO EXECUTAR O BACKEND
